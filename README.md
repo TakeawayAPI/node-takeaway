@@ -13,7 +13,7 @@ yarn add @danielhuisman/takeaway
 - [x] Config
 - [ ] CreateAccount
 - [ ] Discount
-- [ ] GeoLocation
+- [x] GeoLocation
 - [ ] HistoryDetails
 - [ ] LoyaltyPoints
 - [ ] ImportOrder

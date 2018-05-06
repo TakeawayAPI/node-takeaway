@@ -1,6 +1,7 @@
 import getServerTime from './getServerTime';
 import getConfig from './getConfig';
 import getRestaurants from './getRestaurants';
+import getGeoLocation from './getGeoLocation';
 import getMenuCard from './getMenuCard';
 import getReviews from './getReviews';
 import getBanks from './getBanks';
@@ -12,6 +13,7 @@ const requests = {
     getConfig,
     getRestaurants,
     getMenuCard,
+    getGeoLocation,
     getReviews,
     getBanks
 };
