@@ -11,10 +11,11 @@ export {
 };
 
 (async () => {
-    // console.log(inspect(getRestaurants.response, false, null));
-
     try {
-        // const data = await request(getRestaurants, {
+        const config = new TakeawayConfig();
+        const client = new TakeawayClient(config);
+
+        // const data = await client.getRestaurants({
         //     postalCode: '7523CK',
         //     country: '1',
         //     latitude: '52.2345951',
@@ -22,15 +23,12 @@ export {
         //     language: 'nl'
         // });
 
-        // const data = await request(getMenuCard, {
+        // const data = await client.getMenuCard({
         //     restaurantId: '1N01N',
         //     postalCode: '7523CK',
         //     latitude: '52.2345951',
         //     longitude: '6.8979074'
         // });
-
-        const config = new TakeawayConfig();
-        const client = new TakeawayClient(config);
 
         const data = await client.getConfig();
 
