@@ -1,0 +1,43 @@
+{
+  "name": "takeaway",
+  "description": "Script for accessing the Takeaway Android API.",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "author": "Daniel Huisman <daniel@huisman.me> (https://danielhuisman.io)",
+  "contributors": [
+
+  ],
+  "repository": "github:DanielHuisman/takeaway",
+  "keywords": [
+    "takeaway",
+    "thuisbezorgd",
+    "api"
+  ],
+  "scripts": {
+    "lint": "eslint --color src",
+    "clean": "rimraf lib",
+    "build": "yarn run clean && yarn run lint && yarn run build:babel",
+    "build:babel": "babel src --out-dir lib --source-maps --copy-files",
+    "start": "cross-env NODE_ENV=production node index.js",
+    "watch": "babel-watch --watch src src/index.js"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "dotenv": "^4.0.0",
+    "isomorphic-fetch": "^2.2.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-watch": "^2.0.7",
+    "cross-env": "^5.1.1",
+    "eslint": "^4.12.1",
+    "eslint-config-google": "^0.9.1",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-import": "^2.8.0"
+  }
+}
