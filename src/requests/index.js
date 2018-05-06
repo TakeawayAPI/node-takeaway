@@ -6,6 +6,7 @@ import getRestaurants from './getRestaurants';
 import getReviews from './getReviews';
 import getServerTime from './getServerTime';
 import getURLs from './getURLs';
+import login from './login';
 import resetPassword from './resetPassword';
 
 import {reverse} from './util';
@@ -19,6 +20,7 @@ const requests = {
     getReviews,
     getServerTime,
     getURLs,
+    login,
     resetPassword
 };
 

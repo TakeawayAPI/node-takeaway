@@ -22,14 +22,14 @@ yarn add @danielhuisman/takeaway
 - [ ] Order
 - [ ] OrderWithOnlinePayment
 - [ ] RecurringPayment
-- [ ] ResetPassword
+- [x] ResetPassword
 - [ ] RestaurantData
 - [x] RestaurantList
 - [x] Reviews
 - [x] ServerTime
 - [x] URLs
 - [ ] UserAddressList
-- [ ] UserLoginRequest
+- [x] UserLogin
 - [ ] UserOrderHistory
 - [ ] VietnamDeliveryArea
 
