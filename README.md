@@ -68,3 +68,14 @@ import {TakeawayConfig, TakeawayClient} from '@danielhuisman/takeaway';
     }
 })();
 ```
+
+## Development
+## Setup
+```bash
+# Clone Git repository
+git clone git@github.com:TakeawayAPI/node-takeaway.git
+cd node-takeaway
+
+# Install dependencies
+yarn
+```
