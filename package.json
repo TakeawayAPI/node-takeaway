@@ -3,7 +3,6 @@
   "description": "Unofficial JavaScript implementation of the Takeaway.com API.",
   "version": "0.1.0",
   "license": "MIT",
-  "private": true,
   "author": "Daniel Huisman <daniel@huisman.me> (https://danielhuisman.io)",
   "contributors": [],
   "repository": "github:TakeawayAPI/node-takeaway",
