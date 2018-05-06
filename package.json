@@ -23,7 +23,6 @@
   "dependencies": {
     "@rgrove/parse-xml": "^1.1.1",
     "babel-polyfill": "^6.26.0",
-    "dotenv": "^4.0.0",
     "isomorphic-fetch": "^2.2.1"
   },
   "devDependencies": {

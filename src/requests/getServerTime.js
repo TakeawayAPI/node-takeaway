@@ -1,5 +1,3 @@
-import {reverse} from './util';
-
 export default {
     parameters: ({country, restaurantId, orderMode}) => [
         'getcurrenttime',
@@ -7,5 +5,5 @@ export default {
         restaurantId,
         orderMode
     ],
-    response: reverse({})
+    response: {}
 };

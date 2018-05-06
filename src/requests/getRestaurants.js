@@ -1,5 +1,4 @@
 import {deliveryMethods, deliveryCosts} from './base';
-import {reverse} from './util';
 
 export default {
     parameters: ({postalCode, country, latitude, longitude, language, isLocationAccurate = '1'}) => [
@@ -12,7 +11,7 @@ export default {
         '0',
         isLocationAccurate
     ],
-    response: reverse({
+    response: {
         rs: {
             _self: 'rs',
             location: {
@@ -88,5 +87,5 @@ export default {
             weekday: 'wd',
             currentTime: 'ct'
         },
-    })
+    }
 };

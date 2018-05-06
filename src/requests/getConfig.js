@@ -1,11 +1,10 @@
 import {descriptions} from './base';
-import {reverse} from './util';
 
 export default {
     parameters: () => [
         'getcountriesdata'
     ],
-    response: reverse({
+    response: {
         config: {
             _self: 'av',
             countries: [{
@@ -79,5 +78,5 @@ export default {
                 rdc: 'rdc'
             }
         }
-    })
+    }
 };

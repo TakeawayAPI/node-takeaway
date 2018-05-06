@@ -2,8 +2,8 @@ import 'babel-polyfill';
 
 import {inspect} from 'util';
 
-import {request} from './request';
-import {getMenuCard} from './requests';
+import TakeawayConfig from './config';
+import TakeawayClient from './client';
 
 (async () => {
     // console.log(inspect(getRestaurants.response, false, null));
@@ -17,13 +17,17 @@ import {getMenuCard} from './requests';
         //     language: 'nl'
         // });
 
-        const data = await request(getMenuCard, {
-            restaurantId: '1N01N',
-            postalCode: '7523CK',
-            latitude: '52.2345951',
-            longitude: '6.8979074'
-        });
+        // const data = await request(getMenuCard, {
+        //     restaurantId: '1N01N',
+        //     postalCode: '7523CK',
+        //     latitude: '52.2345951',
+        //     longitude: '6.8979074'
+        // });
 
+        const config = new TakeawayConfig();
+        const client = new TakeawayClient(config);
+
+        const data = await client.getConfig();
 
         console.log(inspect(data, false, null));
     } catch (err) {

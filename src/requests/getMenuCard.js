@@ -1,5 +1,4 @@
 import {deliveryMethods, deliveryCosts} from './base';
-import {reverse} from './util';
 
 const time = (tag) => ({
     _self: tag,
@@ -82,7 +81,7 @@ export default {
         clientId,
         isLocationAccurate
     ],
-    response: reverse({
+    response: {
         restaurant: {
             _self: 'rd',
             id: 'ri',
@@ -222,5 +221,5 @@ export default {
             weekday: 'wd',
             clearEmail: 'ce'
         }
-    })
+    }
 };
