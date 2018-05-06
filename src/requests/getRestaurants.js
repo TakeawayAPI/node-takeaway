@@ -1,7 +1,8 @@
+import {deliveryMethods, deliveryCosts} from './base';
 import {reverse} from './util';
 
 export default {
-    parameters: ({postalCode, country, latitude, longitude, language}) => [
+    parameters: ({postalCode, country, latitude, longitude, language, isLocationAccurate = '1'}) => [
         'getrestaurants',
         postalCode,
         country,
@@ -9,7 +10,7 @@ export default {
         longitude,
         language,
         '0',
-        '1'
+        isLocationAccurate
     ],
     response: reverse({
         rs: {
@@ -40,20 +41,7 @@ export default {
                     }]
                 },
                 estimatedDeliveryTime: 'est',
-                deliveryMethods: {
-                    _self: 'dm',
-                    orderMethods: 'ah',
-                    delivery: {
-                        _self: 'dl',
-                        open: 'op',
-                        orderAhead: 'oh'
-                    },
-                    pickup: {
-                        _self: 'pu',
-                        open: 'op',
-                        orderAhead: 'oh'
-                    }
-                },
+                deliveryMethods: deliveryMethods('dm'),
                 polygonStatus: 'ply',
                 kitchens: {
                     _self: 'cs',
@@ -92,22 +80,13 @@ export default {
                 ratingCount: 'bd',
                 logoUrl: 'lo',
                 cacheKey: 'ck',
-                deliveryCosts: {
-                    _self: 'dc',
-                    minimumAmount: 'ma',
-                    costs: {
-                        _self: 'co',
-                        from: 'fr',
-                        to: 'to',
-                        costs: 'ct'
-                    }
-                },
+                deliveryCosts: deliveryCosts('dc'),
                 hasDiscounts: 'hd',
                 hasFoodTracker: 'ft',
-                ds: 'ds'
+                distance: 'ds'
             }],
             weekday: 'wd',
-            ct: 'ct'
+            currentTime: 'ct'
         },
     })
 };
