@@ -12,23 +12,33 @@
     "food",
     "api"
   ],
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "index.js",
+    "README.md",
+    "LICENSE.md",
+    "package.json"
+  ],
   "scripts": {
     "lint": "eslint --color src",
     "clean": "rimraf lib",
     "build": "yarn run clean && yarn run lint && yarn run build:babel",
     "build:babel": "babel src --out-dir lib --source-maps --copy-files",
     "start": "cross-env NODE_ENV=production node index.js",
-    "watch": "babel-watch --watch src src/index.js"
+    "watch": "babel-watch --watch src src/index.js",
+    "prepublish": "yarn run build"
   },
   "dependencies": {
     "@rgrove/parse-xml": "^1.1.1",
-    "babel-polyfill": "^6.26.0",
+    "babel-runtime": "^6.26.0",
     "isomorphic-fetch": "^2.2.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-watch": "^2.0.7",
