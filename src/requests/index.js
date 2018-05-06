@@ -5,6 +5,7 @@ import getGeoLocation from './getGeoLocation';
 import getMenuCard from './getMenuCard';
 import getReviews from './getReviews';
 import getBanks from './getBanks';
+import getURLs from './getURLs';
 
 import {reverse} from './util';
 
@@ -15,7 +16,8 @@ const requests = {
     getMenuCard,
     getGeoLocation,
     getReviews,
-    getBanks
+    getBanks,
+    getURLs
 };
 
 // Reverse all request definition objects for the parser

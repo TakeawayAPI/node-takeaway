@@ -23,10 +23,9 @@ import {TakeawayConfig, TakeawayClient} from '../src';
         // });
 
         // const data = await client.getConfig();
-        const data = await client.getServerTime({
+        const data = await client.getURLs({
             country: '1',
-            restaurantId: '1N01N',
-            orderMode: '1000'
+            language: 'nl'
         }, {
             debug: true
         });

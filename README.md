@@ -27,6 +27,7 @@ yarn add @danielhuisman/takeaway
 - [x] RestaurantList
 - [x] Reviews
 - [x] ServerTime
+- [x] URLs
 - [ ] UserAddressList
 - [ ] UserLoginRequest
 - [ ] UserOrderHistory
