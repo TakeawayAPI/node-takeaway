@@ -7,8 +7,12 @@ export const reverse = (definition) => {
 
         if (typeof value === 'object') {
             if (Array.isArray(value)) {
-                output[value[0]._self] = [reverse(value[0])];
-                output[value[0]._self][0]._self = key;
+                if (typeof value[0] === 'object') {
+                    output[value[0]._self] = [reverse(value[0])];
+                    output[value[0]._self][0]._self = key;
+                } else {
+                    output[value[0]] = [key];
+                }
             } else {
                 output[value._self] = reverse(value);
                 output[value._self]._self = key;

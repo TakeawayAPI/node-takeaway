@@ -61,6 +61,8 @@ const request = async (definition, data, options) => {
 };
 
 (async () => {
+    // console.log(inspect(getRestaurants.response, false, null));
+
     try {
         const data = await request(getRestaurants, {
             postalCode: '7523CK',
@@ -70,7 +72,7 @@ const request = async (definition, data, options) => {
             language: 'nl'
         });
 
-        console.log(inspect(data, false, null));
+        console.log(inspect(data.rs.restaurants[0], false, null));
     } catch (err) {
         console.error(err);
     }
