@@ -5,6 +5,11 @@ import {inspect} from 'util';
 import TakeawayConfig from './config';
 import TakeawayClient from './client';
 
+export {
+    TakeawayConfig,
+    TakeawayClient
+};
+
 (async () => {
     // console.log(inspect(getRestaurants.response, false, null));
 
