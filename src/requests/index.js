@@ -2,6 +2,7 @@ import getServerTime from './getServerTime';
 import getConfig from './getConfig';
 import getRestaurants from './getRestaurants';
 import getMenuCard from './getMenuCard';
+import getBanks from './getBanks';
 
 import {reverse} from './util';
 
@@ -9,7 +10,8 @@ const requests = {
     getServerTime,
     getConfig,
     getRestaurants,
-    getMenuCard
+    getMenuCard,
+    getBanks
 };
 
 // Reverse all request definition objects for the parser

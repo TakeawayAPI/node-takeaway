@@ -30,7 +30,12 @@ export {
         //     longitude: '6.8979074'
         // });
 
-        const data = await client.getConfig();
+        // const data = await client.getConfig();
+        const data = await client.getBanks({
+            restaurantId: '1N01N'
+        }, {
+            debug: true
+        });
 
         console.log(inspect(data, false, null));
     } catch (err) {
