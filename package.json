@@ -1,15 +1,16 @@
 {
-  "name": "takeaway",
-  "description": "Script for accessing the Takeaway Android API.",
-  "version": "1.0.0",
-  "license": "UNLICENSED",
+  "name": "@danielhuisman/takeaway",
+  "description": "Unofficial JavaScript implementation of the Takeaway.com API.",
+  "version": "0.1.0",
+  "license": "MIT",
   "private": true,
   "author": "Daniel Huisman <daniel@huisman.me> (https://danielhuisman.io)",
   "contributors": [],
-  "repository": "github:DanielHuisman/takeaway",
+  "repository": "github:TakeawayAPI/node-takeaway",
   "keywords": [
     "takeaway",
     "thuisbezorgd",
+    "food",
     "api"
   ],
   "scripts": {

@@ -1,51 +1,70 @@
-# Takeaway
+# Node.js Takeaway.com API
 
-Script for accessing the Takeaway Android API.
+Unofficial JavaScript implementation of the [Takeaway.com](https://www.takeaway.com) API.
 
 ## Installation
-Follow these instructions or alternatively copy all files from this boilerplate to your new project.
-```bash
-# Shallow clone this repository
-git clone git@github.com:DanielHuisman/takeaway
-cd takeaway
-
-# Change the default settings
-cp .env.example .env
-nano .env
-
-# Install the dependencies
-yarn
 ```
+yarn add @danielhuisman/takeaway
+```
+
+## Endpoints
+- [x] Banks
+- [ ] CheckVoucher
+- [x] Config
+- [ ] CreateAccount
+- [ ] Discount
+- [ ] GeoLocation
+- [ ] HistoryDetails
+- [ ] LoyaltyPoints
+- [ ] ImportOrder
+- [x] Menucard
+- [ ] OnlinePaymentStatus
+- [ ] Order
+- [ ] OrderWithOnlinePayment
+- [ ] RecurringPayment
+- [ ] ResetPassword
+- [ ] RestaurantData
+- [x] RestaurantList
+- [x] Reviews
+- [x] ServerTime
+- [ ] UserAddressList
+- [ ] UserLoginRequest
+- [ ] UserOrderHistory
+- [ ] VietnamDeliveryArea
 
 ## Usage
-### Development
-#### Linting
-This boilerplate comes with a preconfigured ESLint installation. Most editors (e.g. Atom) have plugins for ESLint, but you can also use the command line:
-```bash
-yarn run lint
-```
+```javascript
+import {inspect} from 'util';
 
-#### Running
-This boilerplate supports automatic reloading, but you can also follow the production instructions if you want manual control over restarts.
-```bash
-# Build and start the application, will automatically rebuild and restart on changes
-yarn run watch
-```
+import {TakeawayConfig, TakeawayClient} from '@danielhuisman/takeaway';
 
-### Production
-#### Using npm
-```bash
-# Build the application
-yarn run build
-# Start the application
-yarn run start
-```
+(async () => {
+    try {
+        // Initialize configuration
+        // See `src/config.js` for defaults
+        const config = new TakeawayConfig({
+            language: 'nl',
+            url: 'https://nl.citymeal.com/android/android.php'
+        });
 
-#### Using a process manager
-Alternatively you can use a process manager, like [PM2](https://github.com/Unitech/pm2) or [Forever](https://github.com/foreverjs/forever), to start and monitor this application. For example:
-```bash
-# Build the application
-yarn run build
-# Start the application using PM2
-pm2 start --name my-project index.js
+        // Initialize client
+        const client = new TakeawayClient(config);
+
+        // Request language configurations
+        let data = await client.getConfig();
+        console.log(inspect(data, false, null));
+
+        // Request restaurants list for area
+        data = await client.getRestaurants({
+            postalCode: '7500',
+            country: '1',
+            latitude: '52.0000000',
+            longitude: '6.0000000',
+            language: 'nl'
+        });
+        console.log(inspect(data, false, null));
+    } catch (err) {
+        console.error(err);
+    }
+})();
 ```
