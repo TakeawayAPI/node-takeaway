@@ -1,11 +1,12 @@
 import 'babel-polyfill';
 
 import crypto from 'crypto';
+import {inspect} from 'util';
 import fetch from 'isomorphic-fetch';
+import parseXml from '@rgrove/parse-xml';
 
-import config from './config';
-
-console.log(`TEST: ${config.test}`);
+import parse from './parse';
+import {getRestaurants} from './requests';
 
 const BASE_URL = 'https://nl.citymeal.com/android/android.php';
 const PASSWORD = '4ndro1d';
@@ -30,12 +31,30 @@ const makeRequest = async (url, {parameters = [], ...options}) => {
 
         console.log('Sending:', query);
 
-        return await fetch(url.length === 0 ? BASE_URL : url, {
+        const response = await fetch(url.length === 0 ? BASE_URL : url, {
             method: 'POST',
             headers,
             body: query,
             ...options
         });
+
+        if (response.status >= 200 && response.status <= 399) {
+            const text = await response.text();
+            console.log(text);
+            return parseXml(text);
+        } else {
+            throw new Error(`Request failed (${response.status} ${response.statusText}): ${await response.text()}`);
+        }
+    } catch (err) {
+        throw err;
+    }
+};
+
+const request = async (definition, data, options) => {
+    try {
+        const parameters = definition.parameters(data);
+        const xml = await makeRequest('', {parameters, ...options});
+        return parse(definition.response, xml);
     } catch (err) {
         throw err;
     }
@@ -43,22 +62,15 @@ const makeRequest = async (url, {parameters = [], ...options}) => {
 
 (async () => {
     try {
-        const response = await makeRequest('', {
-            parameters: [
-                'getrestaurants',
-                '7523',
-                '1', // 1 = Netherlands
-                '52.2345951',
-                '6.8979074',
-                'nl',
-                '0',
-                '1' // Is location accurate
-            ]
+        const data = await request(getRestaurants, {
+            postalCode: '7523CK',
+            country: '1',
+            latitude: '52.2345951',
+            longitude: '6.8979074',
+            language: 'nl'
         });
 
-        console.log(response.status, response.statusText, response.headers.get('Content-Type'));
-
-        console.log(await response.text());
+        console.log(inspect(data, false, null));
     } catch (err) {
         console.error(err);
     }

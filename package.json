@@ -5,9 +5,7 @@
   "license": "UNLICENSED",
   "private": true,
   "author": "Daniel Huisman <daniel@huisman.me> (https://danielhuisman.io)",
-  "contributors": [
-
-  ],
+  "contributors": [],
   "repository": "github:DanielHuisman/takeaway",
   "keywords": [
     "takeaway",
@@ -23,6 +21,7 @@
     "watch": "babel-watch --watch src src/index.js"
   },
   "dependencies": {
+    "@rgrove/parse-xml": "^1.1.1",
     "babel-polyfill": "^6.26.0",
     "dotenv": "^4.0.0",
     "isomorphic-fetch": "^2.2.1"
