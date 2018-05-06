@@ -31,7 +31,7 @@ export {
         // });
 
         // const data = await client.getConfig();
-        const data = await client.getBanks({
+        const data = await client.getReviews({
             restaurantId: '1N01N'
         }, {
             debug: true

@@ -2,6 +2,7 @@ import getServerTime from './getServerTime';
 import getConfig from './getConfig';
 import getRestaurants from './getRestaurants';
 import getMenuCard from './getMenuCard';
+import getReviews from './getReviews';
 import getBanks from './getBanks';
 
 import {reverse} from './util';
@@ -11,6 +12,7 @@ const requests = {
     getConfig,
     getRestaurants,
     getMenuCard,
+    getReviews,
     getBanks
 };
 
