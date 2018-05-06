@@ -5,5 +5,11 @@ export default {
         restaurantId,
         orderMode
     ],
-    response: {}
+    response: {
+        time: {
+            currentTime: 'ct',
+            weekday: 'wd',
+            open: 'rs'
+        }
+    }
 };
