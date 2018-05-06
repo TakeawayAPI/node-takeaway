@@ -1,23 +1,25 @@
-import getServerTime from './getServerTime';
+import getBanks from './getBanks';
 import getConfig from './getConfig';
-import getRestaurants from './getRestaurants';
 import getGeoLocation from './getGeoLocation';
 import getMenuCard from './getMenuCard';
+import getRestaurants from './getRestaurants';
 import getReviews from './getReviews';
-import getBanks from './getBanks';
+import getServerTime from './getServerTime';
 import getURLs from './getURLs';
+import resetPassword from './resetPassword';
 
 import {reverse} from './util';
 
 const requests = {
-    getServerTime,
-    getConfig,
-    getRestaurants,
-    getMenuCard,
-    getGeoLocation,
-    getReviews,
     getBanks,
-    getURLs
+    getConfig,
+    getGeoLocation,
+    getMenuCard,
+    getRestaurants,
+    getReviews,
+    getServerTime,
+    getURLs,
+    resetPassword
 };
 
 // Reverse all request definition objects for the parser
