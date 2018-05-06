@@ -16,18 +16,18 @@ export {
         const client = new TakeawayClient(config);
 
         // const data = await client.getRestaurants({
-        //     postalCode: '7523CK',
+        //     postalCode: '7523',
         //     country: '1',
-        //     latitude: '52.2345951',
-        //     longitude: '6.8979074',
+        //     latitude: '52.0000000',
+        //     longitude: '6.0000000',
         //     language: 'nl'
         // });
 
         // const data = await client.getMenuCard({
         //     restaurantId: '1N01N',
-        //     postalCode: '7523CK',
-        //     latitude: '52.2345951',
-        //     longitude: '6.8979074'
+        //     postalCode: '7523',
+        //     latitude: '52.0000000',
+        //     longitude: '6.0000000'
         // });
 
         // const data = await client.getConfig();
