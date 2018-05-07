@@ -1,5 +1,5 @@
 {
-  "name": "@danielhuisman/takeaway",
+  "name": "takeaway",
   "description": "Unofficial JavaScript implementation of the Takeaway.com API.",
   "version": "0.1.2",
   "license": "MIT",

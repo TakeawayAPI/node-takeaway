@@ -4,7 +4,7 @@ Unofficial JavaScript implementation of the [Takeaway.com](https://www.takeaway.
 
 ## Installation
 ```
-yarn add @danielhuisman/takeaway
+yarn add takeaway
 ```
 
 ## Endpoints
@@ -12,7 +12,7 @@ yarn add @danielhuisman/takeaway
 - [ ] CheckVoucher
 - [x] Config
 - [ ] CreateAccount
-- [ ] Discount
+- [x] Discounts
 - [x] GeoLocation
 - [ ] HistoryDetails
 - [ ] LoyaltyPoints
@@ -37,7 +37,7 @@ yarn add @danielhuisman/takeaway
 ```javascript
 import {inspect} from 'util';
 
-import {TakeawayConfig, TakeawayClient} from '@danielhuisman/takeaway';
+import {TakeawayConfig, TakeawayClient} from 'takeaway';
 
 (async () => {
     try {
