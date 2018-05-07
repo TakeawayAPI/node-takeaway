@@ -7,6 +7,8 @@ import {TakeawayConfig, TakeawayClient} from '../src';
         const config = new TakeawayConfig();
         const client = new TakeawayClient(config);
 
+        // const data = await client.getConfig();
+
         // const data = await client.getRestaurants({
         //     postalCode: '7523',
         //     country: '1',
@@ -22,7 +24,11 @@ import {TakeawayConfig, TakeawayClient} from '../src';
         //     longitude: '6.0000000'
         // });
 
-        const data = await client.getConfig();
+        const data = await client.getReviews({
+            restaurantId: '1N01N',
+            page: 1
+        });
+
         // const data = await client.getDiscounts({
         //     restaurantId: '1N01N',
         //     country: '1',
@@ -31,7 +37,7 @@ import {TakeawayConfig, TakeawayClient} from '../src';
         //     debug: true
         // });
 
-        console.log(inspect(data.config.countries[0], false, null));
+        console.log(inspect(data, false, null));
     } catch (err) {
         console.error(err);
     }

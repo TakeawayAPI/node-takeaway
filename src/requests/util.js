@@ -1,4 +1,4 @@
-export const TYPES = '!#.$/';
+export const TYPES = '!#.$/*';
 
 export const reverseChild = (key, value) => {
     if (typeof value === 'object') {

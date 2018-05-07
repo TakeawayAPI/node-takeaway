@@ -25,7 +25,7 @@ export default {
                 id: 'sid',
                 username: 'un'
             },
-            migrated: 'mig',
+            migrated: '!mig',
             contacts: {
                 _self: 'cs',
                 firstName: 'fn',

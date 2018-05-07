@@ -2,21 +2,21 @@ import {deliveryMethods, deliveryCosts} from './base';
 
 const time = (tag) => ({
     _self: tag,
-    currentTime: 'ct',
+    currentTime: '*ct',
     td: {
         _self: 'td',
         time: {
             _self: 'ti',
-            start: 'st',
-            end: 'et'
+            start: '*st',
+            end: '*et'
         }
     },
     tm: {
         _self: 'tm',
         time: {
             _self: 'ti',
-            start: 'st',
-            end: 'et'
+            start: '*st',
+            end: '*et'
         }
     }
 });
@@ -51,8 +51,8 @@ export const discount = (tag) => ({
     type: 'tp',
     name: 'nm',
     description: 'ds',
-    price: 'pr',
-    amount: 'da',
+    price: '$pr',
+    amount: '#da',
     percentage: 'dp',
     productNumber: 'dn',
     productGroups: {
@@ -63,7 +63,7 @@ export const discount = (tag) => ({
         }]
     },
     repeat: 'en',
-    calculateSideDishes: 'is',
+    calculateSideDishes: '!is',
     minimumAmount: 'doo',
     deliveryMode: 'ddm',
     wd: 'wd',
@@ -87,10 +87,10 @@ export default {
             id: 'ri',
             name: 'nm',
             branch: 'bn',
-            open: 'op',
+            open: '!op',
             polygonStatus: 'ply',
             cacheKey: 'ck',
-            distance: 'ds',
+            distance: '.ds',
             address: {
                 _self: 'ad',
                 street: 'st',
@@ -104,6 +104,7 @@ export default {
                 _self: 'lgl',
                 owner: 'own',
                 commericalRegister: 'tcr',
+                chamberOfCommerce: 'crn',
                 vat: 'vat',
                 address: {
                     _self: 'adr',
@@ -111,17 +112,16 @@ export default {
                     number: 'hn',
                     postalCode: 'pc',
                     city: 'tn'
-                },
-                crn: 'crn'
+                }
             },
             information: {
                 _self: 'oo',
                 logoUrl: 'lu',
                 information: 'nt',
                 slogan: 'sl',
-                grade: 'rv',
-                ratingCount: 'bd',
-                hasFoodTracker: 'ft',
+                grade: '#rv',
+                ratingCount: '#bd',
+                hasFoodTracker: '!ft',
                 cim: 'cim'
             },
             deliveryMethods: deliveryMethods('dm'),
@@ -131,7 +131,7 @@ export default {
                 methods: [{
                     _self: 'me',
                     id: 'mi',
-                    fixedCosts: 'mt',
+                    fixedCosts: '$mt',
                     percentageCosts: 'mf'
                 }]
             },
@@ -174,10 +174,10 @@ export default {
                                 description: 'ds',
                                 photoUrl: 'pu',
                                 deliveryMethod: 'ah',
-                                deliveryPrice: 'pc',
-                                pickupPrice: 'tc',
+                                deliveryPrice: '$pc',
+                                pickupPrice: '$tc',
                                 information: foodInformation('fai'),
-                                excludedFromMinimum: 'xfm',
+                                excludedFromMinimum: '!xfm',
                                 options: {
                                     _self: 'ss',
                                     options: [{
@@ -190,9 +190,9 @@ export default {
                                                 _self: 'ch',
                                                 id: 'id',
                                                 name: 'nm',
-                                                deliveryPrice: 'pc',
-                                                pickupPrice: 'tc',
-                                                excludedFromMinimum: 'xfm',
+                                                deliveryPrice: '$pc',
+                                                pickupPrice: '$tc',
+                                                excludedFromMinimum: '!xfm',
                                                 information: foodInformation('fai')
                                             }]
                                         }
@@ -202,8 +202,8 @@ export default {
                         },
                         time: {
                             _self: 'ru',
-                            start: 'st',
-                            end: 'en'
+                            start: '*st',
+                            end: '*en'
                         }
                     }],
                     discounts1: {
@@ -217,7 +217,7 @@ export default {
                 }
             }],
             // TODO: ap
-            currentTime: 'ct',
+            currentTime: '*ct',
             weekday: 'wd',
             clearEmail: 'ce'
         }

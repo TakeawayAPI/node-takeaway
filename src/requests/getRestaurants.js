@@ -28,10 +28,10 @@ export default {
                 _self: 'rt',
                 id: 'id',
                 name: 'nm',
-                tip: 'tip',
-                new: 'new',
+                tip: '!tip',
+                new: '!new',
                 branch: 'bn',
-                open: 'op',
+                open: '!op',
                 payment: {
                     _self: 'pm',
                     methods: [{
@@ -67,7 +67,7 @@ export default {
                     s9: 's9'
                 },
                 information: 'nt',
-                grade: 'rv',
+                grade: '#rv',
                 address: {
                     _self: 'ad',
                     street: 'st',
@@ -76,16 +76,16 @@ export default {
                     longitude: 'ln',
                     vietnamDistrict: 'pp'
                 },
-                ratingCount: 'bd',
+                ratingCount: '#bd',
                 logoUrl: 'lo',
                 cacheKey: 'ck',
                 deliveryCosts: deliveryCosts('dc'),
-                hasDiscounts: 'hd',
-                hasFoodTracker: 'ft',
-                distance: 'ds'
+                hasDiscounts: '!hd',
+                hasFoodTracker: '!ft',
+                distance: '.ds'
             }],
             weekday: 'wd',
-            currentTime: 'ct'
+            currentTime: '*ct'
         },
     }
 };

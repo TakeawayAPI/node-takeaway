@@ -12,9 +12,9 @@ export default {
                 name: 'nm',
                 time: 'ti',
                 description: 'rm',
-                quality: 'kw',
+                quality: '#kw',
                 delivery: 'be',
-                sunday: 'zo',
+                sunday: '!zo',
                 orderMethod: 'dm'
             }]
         }

@@ -7,9 +7,9 @@ export default {
     ],
     response: {
         time: {
-            currentTime: 'ct',
+            currentTime: '*ct',
             weekday: 'wd',
-            open: 'rs'
+            open: '!rs'
         }
     }
 };

@@ -9,13 +9,24 @@ const parseChild = (def, child, data) => {
             case '!':
                 return [sub, text === '1'];
             case '#':
-                return [sub, parseInt(text)];
+                return [sub, text === '' ? null : parseInt(text)];
             case '.':
-                return [sub, parseFloat(text)];
-            case '$':
-                return [sub, parseInt(text.replace('.', ''))];
+                return [sub, text === '' ? null : parseFloat(text)];
+            case '$': {
+                // Pad with extra zeros if necessary
+                const i = text.includes('.') ? text.length - text.indexOf('.') - 1 : 0;
+                const t = text.replace('.', '');
+                if (i === 0) {
+                    return [sub, parseInt(`${t}00`)];
+                } else if (i === 1) {
+                    return [sub, parseInt(`${t}0`)];
+                }
+                return [sub, parseInt(t)];
+            }
             case '/':
                 return [sub, new RegExp(text)];
+            case '*':
+                return [sub, new Date(text)];
             default:
                 return [def, text];
         }

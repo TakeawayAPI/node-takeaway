@@ -19,25 +19,25 @@ export const deliveryMethods = (tag) => ({
     orderMethods: 'ah',
     delivery: {
         _self: 'dl',
-        open: 'op',
-        orderAhead: 'oh',
-        mealPrepTime: 'mpt'
+        open: '!op',
+        orderAhead: '!oh',
+        mealPrepTime: '#mpt'
     },
     pickup: {
         _self: 'pu',
-        open: 'op',
-        orderAhead: 'oh',
-        mealPrepTime: 'mpt'
+        open: '!op',
+        orderAhead: '!oh',
+        mealPrepTime: '#mpt'
     }
 });
 
 export const deliveryCosts = (tag) => ({
     _self: tag,
-    minimumAmount: 'ma',
+    minimumAmount: '$ma',
     costs: {
         _self: 'co',
-        from: 'fr',
-        to: 'to',
-        costs: 'ct'
+        from: '*fr',
+        to: '*to',
+        costs: '$ct'
     }
 });
