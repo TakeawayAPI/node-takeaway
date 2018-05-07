@@ -33,11 +33,11 @@ yarn add takeaway
 - [x] UserOrderHistory
 - [ ] VietnamDeliveryArea
 
-## Usage
+## Example
 ```javascript
 import {inspect} from 'util';
 
-import {TakeawayConfig, TakeawayClient} from 'takeaway';
+import {Takeaway, TakeawayConfig} from 'takeaway';
 
 (async () => {
     try {
@@ -48,22 +48,19 @@ import {TakeawayConfig, TakeawayClient} from 'takeaway';
             url: 'https://nl.citymeal.com/android/android.php'
         });
 
-        // Initialize client
-        const client = new TakeawayClient(config);
+        // Initialize Takeaway API
+        const takeaway = new Takeaway(config);
 
-        // Request language configurations
-        let data = await client.getConfig();
-        console.log(inspect(data, false, null));
+        // Fetch country
+        const country = await takeaway.getCountryById('NL');
+
+        // Login to the country specific site
+        const user = await country.login('test@exampl.com', 'testpassword123');
+        console.log(inspect(user, false, null));
 
         // Request restaurants list for area
-        data = await client.getRestaurants({
-            postalCode: '7500',
-            country: '1',
-            latitude: '52.0000000',
-            longitude: '6.0000000',
-            language: 'nl'
-        });
-        console.log(inspect(data, false, null));
+        const restaurants = await country.getRestaurants('7500', '52.0000000', '6.0000000');
+        console.log(inspect(restaurants, false, null));
     } catch (err) {
         console.error(err);
     }
