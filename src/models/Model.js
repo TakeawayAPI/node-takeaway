@@ -9,10 +9,19 @@ export const Model = (Target) => {
                         return target[name];
                     }
 
-                    if (target.data && target.data[name]) {
+                    if (target.data && target.data.hasOwnProperty(name)) {
                         return target.data[name];
                     }
                     return Reflect.get(target, name, receiver);
+                },
+                set(target, name, value, receiver) {
+                    if (Target.relationships && Target.relationships.includes(name)) {
+                        target[name] = value;
+                        return true;
+                    }
+
+                    target.data[name] = value;
+                    return true;
                 }
             });
         }

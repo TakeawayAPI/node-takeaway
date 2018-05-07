@@ -11,7 +11,10 @@ import {Takeaway} from '../src';
 
         console.log(restaurants[0]);
         const menu = await restaurants[0].getMenu();
-        console.log(inspect(menu, false, null));
+
+        restaurants[0].address.city2 = 'Test';
+
+        console.log(inspect(restaurants[0].address, false, null));
 
         // const data = await client.getConfig();
 

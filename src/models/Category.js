@@ -3,7 +3,7 @@ import Product from './Product';
 
 @Model
 export default class Category extends BaseModel {
-    static relationships = []
+    static relationships = ['products']
 
     constructor(takeaway, data) {
         super(takeaway, data);

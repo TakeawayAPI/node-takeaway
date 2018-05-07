@@ -3,7 +3,7 @@ import Option from './Option';
 
 @Model
 export default class Product extends BaseModel {
-    static relationships = []
+    static relationships = ['options']
 
     constructor(takeaway, data) {
         super(takeaway, data);

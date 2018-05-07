@@ -5,7 +5,7 @@ import Category from './Category';
 
 @Model
 export default class Restaurant extends BaseModel {
-    static relationships = ['address']
+    static relationships = ['address', 'categories']
 
     constructor(takeaway, data) {
         super(takeaway, data);
