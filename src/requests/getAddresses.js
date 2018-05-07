@@ -1,9 +1,9 @@
 import {contacts} from './base';
 
 export default {
-    parameters: ({username, credentials, countryCode, siteCode}) => [
+    parameters: ({email, credentials, countryCode, siteCode}) => [
         'getaddresslist',
-        username,
+        email,
         credentials,
         countryCode,
         siteCode

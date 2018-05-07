@@ -1,7 +1,7 @@
 export default {
-    parameters: ({username, credentials, countryCode, siteCode, page = 1, isLoggedIn = true}) => [
+    parameters: ({email, credentials, countryCode, siteCode, page = 1, isLoggedIn = true}) => [
         'getorderhistory',
-        username,
+        email,
         credentials,
         countryCode,
         page,

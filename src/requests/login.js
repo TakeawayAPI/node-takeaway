@@ -1,9 +1,9 @@
 import {contacts} from './base';
 
 export default {
-    parameters: ({username, credentials, countryCode, clientId = '', siteCode, socialType = '', socialToken = ''}) => [
+    parameters: ({email, credentials, countryCode, clientId = '', siteCode, socialType = '', socialToken = ''}) => [
         'userauth',
-        username,
+        email,
         credentials,
         countryCode,
         clientId,

@@ -5,7 +5,7 @@ export const Model = (Target) => {
 
             return new Proxy(model, {
                 get(target, name, receiver) {
-                    if (Target.relationships && Target.relationships.includes(name)) {
+                    if (name === 'data' || (Target.relationships && Target.relationships.includes(name))) {
                         return target[name];
                     }
 

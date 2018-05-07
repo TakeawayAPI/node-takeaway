@@ -1,7 +1,7 @@
 export default {
-    parameters: ({username, credentials, countryCode, orderId, siteCode, isLoggedIn = true}) => [
+    parameters: ({email, credentials, countryCode, orderId, siteCode, isLoggedIn = true}) => [
         'getorderdetails',
-        username,
+        email,
         credentials,
         countryCode,
         orderId,
@@ -9,7 +9,7 @@ export default {
         isLoggedIn ? '0' : '1'
     ],
     response: {
-        orders: {
+        order: {
             _self: 'od',
             totalPrice: '$tt',
             deliveryCosts: '$dc',

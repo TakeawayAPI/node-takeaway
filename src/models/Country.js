@@ -1,4 +1,5 @@
 import {Model, BaseModel} from './Model';
+import User from './User';
 import Restaurant from './Restaurant';
 
 @Model
@@ -7,6 +8,34 @@ export default class Country extends BaseModel {
 
     constructor(takeaway, data) {
         super(takeaway, data);
+    }
+
+    async login(email, credentials) {
+        try {
+            const data = await this.takeaway.getClient().login({
+                email,
+                credentials,
+                countryCode: this.code,
+                siteCode: this.siteCode
+            });
+            return new User(this.takeaway, data.login, this);
+        } catch (err) {
+            throw err;
+        }
+    }
+
+    async socialLogin(socialType, socialToken) {
+        try {
+            const data = await this.takeaway.getClient().login({
+                socialType,
+                socialToken,
+                countryCode: this.code,
+                siteCode: this.siteCode
+            });
+            return new User(this.takeaway, data.login, this);
+        } catch (err) {
+            throw err;
+        }
     }
 
     async getRestaurants(postalCode, latitude, longitude) {

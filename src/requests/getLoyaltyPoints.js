@@ -1,8 +1,8 @@
 export default {
-    parameters: ({username, credentials, countryCode, siteCode, language}) => [
+    parameters: ({email, credentials, countryCode, siteCode, language}) => [
         'loyaltypoints',
         countryCode,
-        username,
+        email,
         credentials,
         siteCode,
         language,
