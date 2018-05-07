@@ -6,7 +6,7 @@ export default {
         country,
         clientId,
         siteCode,
-        socialType ? '1' : '0',
+        socialType && socialType.length > 0 ? '1' : '0',
         socialType,
         socialToken
     ],

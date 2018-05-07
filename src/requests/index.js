@@ -1,5 +1,6 @@
 import getBanks from './getBanks';
 import getConfig from './getConfig';
+import getDiscounts from './getDiscounts';
 import getGeoLocation from './getGeoLocation';
 import getMenuCard from './getMenuCard';
 import getRestaurants from './getRestaurants';
@@ -14,6 +15,7 @@ import {reverse} from './util';
 const requests = {
     getBanks,
     getConfig,
+    getDiscounts,
     getGeoLocation,
     getMenuCard,
     getRestaurants,

@@ -23,7 +23,8 @@ import {TakeawayConfig, TakeawayClient} from '../src';
         // });
 
         // const data = await client.getConfig();
-        const data = await client.getURLs({
+        const data = await client.getDiscounts({
+            restaurantId: '1N01N',
             country: '1',
             language: 'nl'
         }, {
