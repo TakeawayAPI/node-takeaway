@@ -54,6 +54,8 @@ export const contacts = (tag) => ({
         postalCode: 'pc',
         city: 'tn',
         phone: 'nr',
+        deliveryAreaId: 'bg',
+        deliveryArea: 'bn',
         vietnamCity: 'vc',
         vietnamArea: 'va',
         vietnamCityId: 'va',
@@ -78,8 +80,6 @@ export const contacts = (tag) => ({
             compoundAddresss: 'addressatcompound',
             ward: 'ward',
             company: 'companyname'
-        },
-        bg: 'bg',
-        bn: 'bn'
+        }
     }]
 });

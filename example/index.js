@@ -24,16 +24,6 @@ import {TakeawayConfig, TakeawayClient} from '../src';
         //     longitude: '6.0000000'
         // });
 
-        const data = await client.getRestaurantData({
-            restaurantId: '1N01N',
-            postalCode: '7523',
-            latitude: '52.0000000',
-            longitude: '6.0000000',
-            clientId: 'test'
-        }, {
-            debug: true
-        });
-
         // const data = await client.getDiscounts({
         //     restaurantId: '1N01N',
         //     country: '1',

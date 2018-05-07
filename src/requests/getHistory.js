@@ -1,35 +1,38 @@
 export default {
-    parameters: ({username, credentials, countryCode, orderId, siteCode, isLoggedIn = true}) => [
-        'getorderdetails',
+    parameters: ({username, credentials, countryCode, siteCode, page = 1, isLoggedIn = true}) => [
+        'getorderhistory',
         username,
         credentials,
         countryCode,
-        orderId,
+        page,
         siteCode,
         isLoggedIn ? '0' : '1'
     ],
     response: {
-        orders: {
-            _self: 'od',
-            totalPrice: '$tt',
-            deliveryCosts: '$dc',
-            paymentMethod: 'pm',
-            discountReceived: '!ds',
-            products: [{
-                _self: 'pr',
+        history: {
+            _self: 'hi',
+            orders: [{
+                _self: 'or',
+                timestamp: 'ot',
                 id: 'id',
-                name: 'nm',
-                price: '$pc',
-                rmk: 'rmk',
-                options: [{
-                    _self: 'sd',
-                    id: 'id',
-                    name: 'nm',
-                    price: '$pc'
-                }]
-            }],
-            transactionCosts: '$mf',
-            polygonStatus: 'ply'
+                addressId: 'ai',
+                steet: 'ad',
+                number: 'hn',
+                postalCode: 'da',
+                deliveryAreaId: 'bg',
+                deliveryArea: 'bn',
+                city: 'tn',
+                restaurantId: 'rd',
+                restaurantName: 'nm',
+                restaurantLogoUrl: 'lu',
+                orderNumber: 'on',
+                deliveryMethod: 'dm',
+                vietnamCity: 'vc',
+                vietnamDistrict: 'vd',
+                vietnamDistrictId: 'va',
+                latitude: 'lat',
+                longitude: 'lng'
+            }]
         }
     }
 };

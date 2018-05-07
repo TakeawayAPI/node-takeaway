@@ -30,7 +30,7 @@ yarn add takeaway
 - [x] URLs
 - [x] UserAddressList
 - [x] UserLogin
-- [ ] UserOrderHistory
+- [x] UserOrderHistory
 - [ ] VietnamDeliveryArea
 
 ## Usage
