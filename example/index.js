@@ -24,12 +24,12 @@ import {TakeawayConfig, TakeawayClient} from '../src';
         //     longitude: '6.0000000'
         // });
 
-        const data = await client.getHistory({
-            username: 'daniel@huisman.me',
-            credentials: 'nope',
-            countryCode: 1,
-            siteCode: 48,
-            orderId: 'test'
+        const data = await client.getRestaurantData({
+            restaurantId: '1N01N',
+            postalCode: '7523',
+            latitude: '52.0000000',
+            longitude: '6.0000000',
+            clientId: 'test'
         }, {
             debug: true
         });
@@ -42,7 +42,7 @@ import {TakeawayConfig, TakeawayClient} from '../src';
         //     debug: true
         // });
 
-        console.log(inspect(data.orders.products.length, false, null));
+        console.log(inspect(data, false, null));
     } catch (err) {
         console.error(err);
     }

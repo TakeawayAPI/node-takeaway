@@ -5,6 +5,7 @@ import getDiscounts from './getDiscounts';
 import getGeoLocation from './getGeoLocation';
 import getHistory from './getHistory';
 import getMenuCard from './getMenuCard';
+import getRestaurantData from './getRestaurantData';
 import getRestaurants from './getRestaurants';
 import getReviews from './getReviews';
 import getServerTime from './getServerTime';
@@ -22,6 +23,7 @@ const requests = {
     getGeoLocation,
     getHistory,
     getMenuCard,
+    getRestaurantData,
     getRestaurants,
     getReviews,
     getServerTime,

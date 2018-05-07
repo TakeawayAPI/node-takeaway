@@ -23,7 +23,7 @@ yarn add takeaway
 - [ ] OrderWithOnlinePayment
 - [ ] RecurringPayment
 - [x] ResetPassword
-- [ ] RestaurantData
+- [x] RestaurantData
 - [x] RestaurantList
 - [x] Reviews
 - [x] ServerTime

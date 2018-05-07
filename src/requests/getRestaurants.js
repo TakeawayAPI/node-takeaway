@@ -12,7 +12,7 @@ export default {
         isLocationAccurate
     ],
     response: {
-        rs: {
+        restaurants: {
             _self: 'rs',
             location: {
                 _self: 'cp',
