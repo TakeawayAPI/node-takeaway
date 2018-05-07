@@ -11,6 +11,7 @@ export default class Restaurant extends BaseModel {
         super(takeaway, data);
 
         this.address = new Address(takeaway, data.address);
+        delete data.address;
     }
 
     async getMenu() {
@@ -24,10 +25,9 @@ export default class Restaurant extends BaseModel {
             });
             this.data = Object.assign({}, this.data, data.restaurant);
 
-            console.log(this.data.menu);
-
             this.categories = this.data.menu[0].categories.categories.map((category) => new Category(this.takeaway, category));
-            console.log(this.categories[0]);
+            delete this.data.menu[0].categories;
+            return this.categories;
         } catch (err) {
             throw err;
         }

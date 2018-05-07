@@ -1,6 +1,6 @@
 import {inspect} from 'util';
 
-import {Takeaway, TakeawayConfig, TakeawayClient, Restaurant} from '../src';
+import {Takeaway, TakeawayConfig, TakeawayClient} from '../src';
 
 (async () => {
     try {
@@ -13,7 +13,7 @@ import {Takeaway, TakeawayConfig, TakeawayClient, Restaurant} from '../src';
 
         console.log(restaurants[0]);
         const menu = await restaurants[0].getMenu();
-        console.log(menu);
+        console.log(inspect(menu, false, null));
 
         // const data = await client.getConfig();
 
