@@ -1,12 +1,10 @@
 import {inspect} from 'util';
 
-import {Takeaway, TakeawayConfig, TakeawayClient} from '../src';
+import {Takeaway} from '../src';
 
 (async () => {
     try {
-        const config = new TakeawayConfig();
-        const client = new TakeawayClient(config);
-        const takeaway = new Takeaway(client);
+        const takeaway = new Takeaway();
 
         const country = await takeaway.getCountryById('NL');
         const restaurants = await country.getRestaurants('7523', '', '');
