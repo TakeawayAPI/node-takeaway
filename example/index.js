@@ -24,9 +24,13 @@ import {TakeawayConfig, TakeawayClient} from '../src';
         //     longitude: '6.0000000'
         // });
 
-        const data = await client.getReviews({
-            restaurantId: '1N01N',
-            page: 1
+        const data = await client.getAddresses({
+            username: 'daniel@huisman.me',
+            credentials: 'U7#kS9V@7wB?s9V#',
+            countryCode: 1,
+            siteCode: 48
+        }, {
+            debug: true
         });
 
         // const data = await client.getDiscounts({

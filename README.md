@@ -28,7 +28,7 @@ yarn add takeaway
 - [x] Reviews
 - [x] ServerTime
 - [x] URLs
-- [ ] UserAddressList
+- [x] UserAddressList
 - [x] UserLogin
 - [ ] UserOrderHistory
 - [ ] VietnamDeliveryArea

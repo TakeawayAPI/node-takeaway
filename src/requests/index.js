@@ -1,3 +1,4 @@
+import getAddresses from './getAddresses';
 import getBanks from './getBanks';
 import getConfig from './getConfig';
 import getDiscounts from './getDiscounts';
@@ -13,6 +14,7 @@ import resetPassword from './resetPassword';
 import {reverse} from './util';
 
 const requests = {
+    getAddresses,
     getBanks,
     getConfig,
     getDiscounts,
