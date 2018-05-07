@@ -15,7 +15,7 @@ export const Model = (Target) => {
                     return Reflect.get(target, name, receiver);
                 },
                 set(target, name, value, receiver) {
-                    if (Target.relationships && Target.relationships.includes(name)) {
+                    if (name === 'data' || (Target.relationships && Target.relationships.includes(name))) {
                         target[name] = value;
                         return true;
                     }
