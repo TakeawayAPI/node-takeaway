@@ -1,6 +1,6 @@
 import getAddresses from './getAddresses';
 import getBanks from './getBanks';
-import getConfig from './getConfig';
+import getCountries from './getCountries';
 import getDiscounts from './getDiscounts';
 import getGeoLocation from './getGeoLocation';
 import getHistory from './getHistory';
@@ -20,7 +20,7 @@ import {reverse} from './util';
 const requests = {
     getAddresses,
     getBanks,
-    getConfig,
+    getCountries,
     getDiscounts,
     getGeoLocation,
     getHistory,

@@ -24,9 +24,9 @@ const parseChild = (def, child, data) => {
                 return [sub, parseInt(t)];
             }
             case '/':
-                return [sub, new RegExp(text)];
+                return [sub, text === '' ? null : new RegExp(text)];
             case '*':
-                return [sub, new Date(text)];
+                return [sub, text === '' ? null : new Date(text)];
             default:
                 return [def, text];
         }

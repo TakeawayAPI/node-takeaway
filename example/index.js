@@ -1,11 +1,19 @@
 import {inspect} from 'util';
 
-import {TakeawayConfig, TakeawayClient} from '../src';
+import {Takeaway, TakeawayConfig, TakeawayClient, Restaurant} from '../src';
 
 (async () => {
     try {
         const config = new TakeawayConfig();
         const client = new TakeawayClient(config);
+        const takeaway = new Takeaway(client);
+
+        const country = await takeaway.getCountryById('NL');
+        const restaurants = await country.getRestaurants('7523', '', '');
+
+        console.log(restaurants[0]);
+        const menu = await restaurants[0].getMenu();
+        console.log(menu);
 
         // const data = await client.getConfig();
 
@@ -16,6 +24,9 @@ import {TakeawayConfig, TakeawayClient} from '../src';
         //     longitude: '6.0000000',
         //     language: 'nl'
         // });
+
+        // const restaurants = data.restaurants.restaurants.map((data) => new Restaurant(data));
+        // console.log(restaurants[0]);
 
         // const data = await client.getMenuCard({
         //     restaurantId: '1N01N',
@@ -32,7 +43,9 @@ import {TakeawayConfig, TakeawayClient} from '../src';
         //     debug: true
         // });
 
-        console.log(inspect(data, false, null));
+        // delete data.restaurants.restaurants;
+
+        // console.log(inspect(data, false, null));
     } catch (err) {
         console.error(err);
     }

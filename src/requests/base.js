@@ -36,8 +36,8 @@ export const deliveryCosts = (tag) => ({
     minimumAmount: '$ma',
     costs: {
         _self: 'co',
-        from: '*fr',
-        to: '*to',
+        from: '#fr',
+        to: '#to',
         costs: '$ct'
     }
 });

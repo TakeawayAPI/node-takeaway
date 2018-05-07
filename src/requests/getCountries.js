@@ -9,7 +9,7 @@ export default {
             _self: 'av',
             countries: [{
                 _self: 'cd',
-                country: 'cy',
+                id: 'cy',
                 name: 'nm',
                 siteUrl: 'su',
                 pregMatch1: '/p1',
