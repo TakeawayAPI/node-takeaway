@@ -14,7 +14,7 @@ yarn add takeaway
 - [ ] CreateAccount
 - [x] Discounts
 - [x] GeoLocation
-- [ ] HistoryDetails
+- [x] HistoryDetails
 - [ ] LoyaltyPoints
 - [ ] ImportOrder
 - [x] Menucard

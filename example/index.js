@@ -24,11 +24,12 @@ import {TakeawayConfig, TakeawayClient} from '../src';
         //     longitude: '6.0000000'
         // });
 
-        const data = await client.getAddresses({
+        const data = await client.getHistory({
             username: 'daniel@huisman.me',
-            credentials: 'U7#kS9V@7wB?s9V#',
+            credentials: 'nope',
             countryCode: 1,
-            siteCode: 48
+            siteCode: 48,
+            orderId: 'test'
         }, {
             debug: true
         });
@@ -41,7 +42,7 @@ import {TakeawayConfig, TakeawayClient} from '../src';
         //     debug: true
         // });
 
-        console.log(inspect(data, false, null));
+        console.log(inspect(data.orders.products.length, false, null));
     } catch (err) {
         console.error(err);
     }

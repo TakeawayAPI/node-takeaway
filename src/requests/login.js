@@ -1,11 +1,11 @@
 import {contacts} from './base';
 
 export default {
-    parameters: ({username, credentials, country, clientId = '', siteCode, socialType = '', socialToken = ''}) => [
+    parameters: ({username, credentials, countryCode, clientId = '', siteCode, socialType = '', socialToken = ''}) => [
         'userauth',
         username,
         credentials,
-        country,
+        countryCode,
         clientId,
         siteCode,
         socialType && socialType.length > 0 ? '1' : '0',

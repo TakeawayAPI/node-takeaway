@@ -3,6 +3,7 @@ import getBanks from './getBanks';
 import getConfig from './getConfig';
 import getDiscounts from './getDiscounts';
 import getGeoLocation from './getGeoLocation';
+import getHistory from './getHistory';
 import getMenuCard from './getMenuCard';
 import getRestaurants from './getRestaurants';
 import getReviews from './getReviews';
@@ -19,6 +20,7 @@ const requests = {
     getConfig,
     getDiscounts,
     getGeoLocation,
+    getHistory,
     getMenuCard,
     getRestaurants,
     getReviews,
