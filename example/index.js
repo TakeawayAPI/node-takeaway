@@ -22,16 +22,16 @@ import {TakeawayConfig, TakeawayClient} from '../src';
         //     longitude: '6.0000000'
         // });
 
-        // const data = await client.getConfig();
-        const data = await client.getDiscounts({
-            restaurantId: '1N01N',
-            country: '1',
-            language: 'nl'
-        }, {
-            debug: true
-        });
+        const data = await client.getConfig();
+        // const data = await client.getDiscounts({
+        //     restaurantId: '1N01N',
+        //     country: '1',
+        //     language: 'nl'
+        // }, {
+        //     debug: true
+        // });
 
-        console.log(inspect(data, false, null));
+        console.log(inspect(data.config.countries[0], false, null));
     } catch (err) {
         console.error(err);
     }

@@ -1,3 +1,27 @@
+const parseChild = (def, child, data) => {
+    if (typeof def === 'object') {
+        return [def._self, parseChildren(def, child)];
+    } else {
+        const text = child.children.length === 0 ? '' : child.children[0].text;
+        const sub = def.substring(1);
+
+        switch (def.charAt(0)) {
+            case '!':
+                return [sub, text === '1'];
+            case '#':
+                return [sub, parseInt(text)];
+            case '.':
+                return [sub, parseFloat(text)];
+            case '$':
+                return [sub, parseInt(text.replace('.', ''))];
+            case '/':
+                return [sub, new RegExp(text)];
+            default:
+                return [def, text];
+        }
+    }
+};
+
 const parseChildren = (definition, xml) => {
     const data = {};
 
@@ -17,24 +41,15 @@ const parseChildren = (definition, xml) => {
             const def = definition[child.name];
 
             if (Array.isArray(def)) {
-                let key = null;
-                let value = null;
-                if (typeof def[0] === 'object') {
-                    key = def[0]._self;
-                    value = parseChildren(def[0], child);
-                } else {
-                    key = def[0];
-                    value = child.children.length === 0 ? '' : child.children[0].text;
-                }
+                const [key, value] = parseChild(def[0], child);
 
                 if (!data[key]) {
                     data[key] = [];
                 }
                 data[key].push(value);
-            } else if (typeof def === 'object') {
-                data[def._self] = parseChildren(def, child);
             } else {
-                data[def] = child.children.length === 0 ? '' : child.children[0].text;
+                const [key, value] = parseChild(def, child);
+                data[key] = value;
             }
         }
     }

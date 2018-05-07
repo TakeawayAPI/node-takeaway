@@ -12,9 +12,9 @@ export default {
                 country: 'cy',
                 name: 'nm',
                 siteUrl: 'su',
-                pregMatch1: 'p1',
-                pregMatch2: 'p2',
-                pregMatch3: 'p3',
+                pregMatch1: '/p1',
+                pregMatch2: '/p2',
+                pregMatch3: '/p3',
                 message1: 'e1',
                 message2: 'e2',
                 twitter: 'tw',
@@ -24,8 +24,8 @@ export default {
                 headerUrl: 'hl',
                 code: 'ic',
                 siteCode: 'sc',
-                pickupEnabled: 'pie',
-                loyaltyShopEnabled: 'lye',
+                pickupEnabled: '!pie',
+                loyaltyShopEnabled: '!lye',
                 languages: {
                     _self: 'ls',
                     languages: ['la']
