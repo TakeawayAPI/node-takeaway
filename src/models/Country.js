@@ -1,5 +1,6 @@
 import {Model, BaseModel} from './Model';
 import User from './User';
+import Address from './Address';
 import Restaurant from './Restaurant';
 
 @Model
@@ -33,6 +34,19 @@ export default class Country extends BaseModel {
                 siteCode: this.siteCode
             });
             return new User(this.takeaway, data.login, this);
+        } catch (err) {
+            throw err;
+        }
+    }
+
+    async getLocation(latitude, longitude) {
+        try {
+            const data = await this.takeaway.getClient().getGeoLocation({
+                country: this.code,
+                latitude,
+                longitude
+            });
+            return new Address(data.location);
         } catch (err) {
             throw err;
         }
