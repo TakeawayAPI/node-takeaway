@@ -1,4 +1,5 @@
 export {default as Address} from './Address';
+export {default as Bank} from './Bank';
 export {default as Category} from './Category';
 export {default as Choice} from './Choice';
 export {default as Country} from './Country';

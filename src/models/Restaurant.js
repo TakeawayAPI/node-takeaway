@@ -3,6 +3,7 @@ import {Model, BaseModel} from './Model';
 import Address from './Address';
 import Category from './Category';
 import Review from './Review';
+import Bank from './Bank';
 
 @Model
 export default class Restaurant extends BaseModel {
@@ -58,6 +59,19 @@ export default class Restaurant extends BaseModel {
 
             this.open = data.time.open;
             return data.time;
+        } catch (err) {
+            throw err;
+        }
+    }
+
+    async getBanks() {
+        try {
+            const data = await this.takeaway.getClient().getBanks({
+                restaurantId: this.id
+            });
+
+            this.banks = data.banks.banks.map((bank) => new Bank(this.takeaway, bank));
+            return this.banks;
         } catch (err) {
             throw err;
         }
