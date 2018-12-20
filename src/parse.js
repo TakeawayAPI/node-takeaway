@@ -1,3 +1,5 @@
+import {print} from './util';
+
 const parseChild = (def, child, data) => {
     if (typeof def === 'object') {
         return [def._self, parseChildren(def, child)];
@@ -48,6 +50,7 @@ const parseChildren = (definition, xml) => {
 
         if (!definition[child.name]) {
             console.log(`Unknown tag: "${child.name}", parent tag: "${xml.name}"`);
+            console.log(print(child));
         } else {
             const def = definition[child.name];
 
@@ -69,6 +72,7 @@ const parseChildren = (definition, xml) => {
 };
 
 const parse = (definition, xml) => {
+    // print(xml);
     return parseChildren(definition, xml);
 };
 

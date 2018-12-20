@@ -77,6 +77,18 @@ export default {
                             _self: 'ot'
                             // TODO
                         },
+                        openingHours: {
+                            _self: 'ao',
+                            day: {
+                                _self: 'dr',
+                                number: 'od',
+                                time: {
+                                    _self: 'ru',
+                                    start: '*st',
+                                    end: '*en'
+                                }
+                            }
+                        },
                         products: {
                             _self: 'ps',
                             products: [{

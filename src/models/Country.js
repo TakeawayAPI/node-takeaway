@@ -61,7 +61,7 @@ export default class Country extends BaseModel {
                 longitude,
                 language: this.takeaway.getLanguage()
             });
-            return data.restaurants.restaurants.map((restaurant) => new Restaurant(this.takeaway, restaurant));
+            return data.restaurants.restaurants.map((restaurant) => new Restaurant(this.takeaway, restaurant, this));
         } catch (err) {
             throw err;
         }

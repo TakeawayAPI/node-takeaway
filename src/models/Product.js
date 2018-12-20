@@ -8,9 +8,11 @@ export default class Product extends BaseModel {
     constructor(takeaway, data) {
         super(takeaway, data);
 
-        if (data.options) {
+        if (data.options && data.options.options) {
             this.options = data.options.options.map((choice) => new Option(takeaway, choice));
             delete data.options;
+        } else {
+            this.options = [];
         }
     }
 };

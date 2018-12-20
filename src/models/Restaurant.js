@@ -17,20 +17,24 @@ export default class Restaurant extends BaseModel {
         delete data.address;
     }
 
-    async getMenu() {
+    async getMenu(postalCode) {
         try {
             const data = await this.takeaway.getClient().getMenuCard({
                 restaurantId: this.id,
                 country: this.country.code,
-                // postalCode: '',
+                postalCode,
                 latitude: this.address.latitude,
                 longitude: this.address.longitude
             });
             this.data = Object.assign({}, this.data, data.restaurant);
 
-            this.categories = this.data.menu[0].categories.categories.map((category) => new Category(this.takeaway, category));
-            delete this.data.menu[0].categories;
-            return this.categories;
+            if (this.data.menu && this.data.menu.length > 0) {
+                this.categories = this.data.menu[0].categories.categories.map((category) => new Category(this.takeaway, category));
+                delete this.data.menu[0].categories;
+                return this.categories;
+            } else {
+                return [];
+            }
         } catch (err) {
             throw err;
         }
