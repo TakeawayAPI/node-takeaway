@@ -5,6 +5,7 @@ export const descriptions = (tag) => ({
     de: 'de',
     en: 'en',
     fr: 'fr',
+    it: 'it',
     lu: 'lu',
     nl: 'nl',
     pl: 'pl',
