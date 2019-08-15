@@ -68,7 +68,7 @@ import {Takeaway, TakeawayConfig} from 'takeaway';
 ```
 
 ## Development
-## Setup
+### Setup
 ```bash
 # Clone Git repository
 git clone git@github.com:TakeawayAPI/node-takeaway.git
