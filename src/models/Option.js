@@ -2,7 +2,7 @@ import {Model, BaseModel} from './Model';
 import Choice from './Choice';
 
 @Model
-export default class Option extends BaseModel {
+class Option extends BaseModel {
     static relationships = ['choices']
 
     constructor(takeaway, data) {
@@ -13,4 +13,6 @@ export default class Option extends BaseModel {
             delete data.choices;
         }
     }
-};
+}
+
+export default Option;

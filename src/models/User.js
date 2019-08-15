@@ -4,7 +4,7 @@ import Loyalty from './Loyalty';
 import HistoryOrder from './HistoryOrder';
 
 @Model
-export default class User extends BaseModel {
+class User extends BaseModel {
     static relationships = ['country', 'addresses', 'loyalty']
 
     constructor(takeaway, data, country) {
@@ -18,35 +18,29 @@ export default class User extends BaseModel {
     }
 
     async getLoyalty() {
-        try {
-            const data = await this.takeaway.getClient().getLoyaltyPoints({
-                email: this.email,
-                credentials: this.token,
-                countryCode: this.country.code,
-                siteCode: this.country.siteCode,
-                language: this.takeaway.getLanguage()
-            });
+        const data = await this.takeaway.getClient().getLoyaltyPoints({
+            email: this.email,
+            credentials: this.token,
+            countryCode: this.country.code,
+            siteCode: this.country.siteCode,
+            language: this.takeaway.getLanguage()
+        });
 
-            this.loyalty = new Loyalty(this.takeaway, data.loyalty);
-            return this.loyalty;
-        } catch (err) {
-            throw err;
-        }
+        this.loyalty = new Loyalty(this.takeaway, data.loyalty);
+        return this.loyalty;
     }
 
     async getHistory(page = 1) {
-        try {
-            const data = await this.takeaway.getClient().getHistory({
-                email: this.email,
-                credentials: this.token,
-                countryCode: this.country.code,
-                siteCode: this.country.siteCode,
-                page
-            });
+        const data = await this.takeaway.getClient().getHistory({
+            email: this.email,
+            credentials: this.token,
+            countryCode: this.country.code,
+            siteCode: this.country.siteCode,
+            page
+        });
 
-            return data.history.orders.map((order) => new HistoryOrder(this.takeaway, order, this));
-        } catch (err) {
-            throw err;
-        }
+        return data.history.orders.map((order) => new HistoryOrder(this.takeaway, order, this));
     }
 };
+
+export default User;

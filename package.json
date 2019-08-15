@@ -31,23 +31,23 @@
     "prepublish": "yarn run build"
   },
   "dependencies": {
-    "@rgrove/parse-xml": "^1.1.1",
+    "@rgrove/parse-xml": "^2.0.1",
     "babel-runtime": "^6.26.0",
     "isomorphic-fetch": "^2.2.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
-    "babel-eslint": "^8.0.2",
+    "babel-eslint": "^10.0.2",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-0": "^6.24.1",
-    "babel-watch": "^2.0.7",
+    "babel-watch": "^7.0.0",
     "cross-env": "^5.1.1",
-    "eslint": "^4.12.1",
-    "eslint-config-google": "^0.9.1",
-    "eslint-plugin-babel": "^4.1.2",
+    "eslint": "^6.1.0",
+    "eslint-config-google": "^0.13.0",
+    "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-import": "^2.8.0"
   }
 }

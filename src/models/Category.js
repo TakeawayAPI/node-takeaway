@@ -2,7 +2,7 @@ import {Model, BaseModel} from './Model';
 import Product from './Product';
 
 @Model
-export default class Category extends BaseModel {
+class Category extends BaseModel {
     static relationships = ['products']
 
     constructor(takeaway, data) {
@@ -11,4 +11,6 @@ export default class Category extends BaseModel {
         this.products = data.products.products.map((product) => new Product(takeaway, product));
         delete data.products;
     }
-};
+}
+
+export default Category;

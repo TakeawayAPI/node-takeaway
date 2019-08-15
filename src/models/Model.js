@@ -9,7 +9,7 @@ export const Model = (Target) => {
                         return target[name];
                     }
 
-                    if (target.data && target.data.hasOwnProperty(name)) {
+                    if (target.data && Object.prototype.hasOwnProperty.call(target.data, name)) {
                         return target.data[name];
                     }
                     return Reflect.get(target, name, receiver);

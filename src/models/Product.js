@@ -2,7 +2,7 @@ import {Model, BaseModel} from './Model';
 import Option from './Option';
 
 @Model
-export default class Product extends BaseModel {
+class Product extends BaseModel {
     static relationships = ['options']
 
     constructor(takeaway, data) {
@@ -15,4 +15,6 @@ export default class Product extends BaseModel {
             this.options = [];
         }
     }
-};
+}
+
+export default Product;

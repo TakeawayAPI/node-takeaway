@@ -26,20 +26,12 @@ export default class Takeaway {
     }
 
     async getCountries() {
-        try {
-            const data = await this.getClient().getCountries();
-            return data.config.countries.map((country) => new Country(this, country, {hasLazyLoaded: true}));
-        } catch (err) {
-            throw err;
-        }
+        const data = await this.getClient().getCountries();
+        return data.config.countries.map((country) => new Country(this, country, {hasLazyLoaded: true}));
     }
 
     async getCountryById(id) {
-        try {
-            const countries = await this.getCountries();
-            return countries.filter((country) => country.id === id)[0];
-        } catch (err) {
-            throw err;
-        }
+        const countries = await this.getCountries();
+        return countries.filter((country) => country.id === id)[0];
     }
 };

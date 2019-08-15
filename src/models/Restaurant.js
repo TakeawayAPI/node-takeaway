@@ -6,7 +6,7 @@ import Review from './Review';
 import Bank from './Bank';
 
 @Model
-export default class Restaurant extends BaseModel {
+class Restaurant extends BaseModel {
     static relationships = ['address', 'categories']
 
     constructor(takeaway, data, country) {
@@ -18,66 +18,52 @@ export default class Restaurant extends BaseModel {
     }
 
     async getMenu(postalCode) {
-        try {
-            const data = await this.takeaway.getClient().getMenuCard({
-                restaurantId: this.id,
-                country: this.country.code,
-                postalCode,
-                latitude: this.address.latitude,
-                longitude: this.address.longitude
-            });
-            this.data = Object.assign({}, this.data, data.restaurant);
+        const data = await this.takeaway.getClient().getMenuCard({
+            restaurantId: this.id,
+            country: this.country.code,
+            postalCode,
+            latitude: this.address.latitude,
+            longitude: this.address.longitude
+        });
+        this.data = Object.assign({}, this.data, data.restaurant);
 
-            if (this.data.menu && this.data.menu.length > 0) {
-                this.categories = this.data.menu[0].categories.categories.map((category) => new Category(this.takeaway, category));
-                delete this.data.menu[0].categories;
-                return this.categories;
-            } else {
-                return [];
-            }
-        } catch (err) {
-            throw err;
+        if (this.data.menu && this.data.menu.length > 0) {
+            this.categories = this.data.menu[0].categories.categories.map((category) => new Category(this.takeaway, category));
+            delete this.data.menu[0].categories;
+            return this.categories;
+        } else {
+            return [];
         }
     }
 
     async getReviews(page = 1) {
-        try {
-            const data = await this.takeaway.getClient().getReviews({
-                restaurantId: this.id,
-                page
-            });
+        const data = await this.takeaway.getClient().getReviews({
+            restaurantId: this.id,
+            page
+        });
 
-            return data.reviews.reviews.map((review) => new Review(this.takeaway, review));
-        } catch (err) {
-            throw err;
-        }
+        return data.reviews.reviews.map((review) => new Review(this.takeaway, review));
     }
 
     async getTime(orderMode) {
-        try {
-            const data = await this.takeaway.getClient().getServerTime({
-                country: this.country.code,
-                restaurantId: this.id,
-                orderMode
-            });
+        const data = await this.takeaway.getClient().getServerTime({
+            country: this.country.code,
+            restaurantId: this.id,
+            orderMode
+        });
 
-            this.open = data.time.open;
-            return data.time;
-        } catch (err) {
-            throw err;
-        }
+        this.open = data.time.open;
+        return data.time;
     }
 
     async getBanks() {
-        try {
-            const data = await this.takeaway.getClient().getBanks({
-                restaurantId: this.id
-            });
+        const data = await this.takeaway.getClient().getBanks({
+            restaurantId: this.id
+        });
 
-            this.banks = data.banks.banks.map((bank) => new Bank(this.takeaway, bank));
-            return this.banks;
-        } catch (err) {
-            throw err;
-        }
+        this.banks = data.banks.banks.map((bank) => new Bank(this.takeaway, bank));
+        return this.banks;
     }
-};
+}
+
+export default Restaurant;
