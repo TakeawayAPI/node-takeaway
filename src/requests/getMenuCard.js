@@ -31,12 +31,12 @@ export const product = (tag, sizes = true) => ({
             }
         }]
     },
-    sizes: sizes ? [{
+    sizes: sizes ? {
         _self: 'sz',
-        product: [product('pr', false)]
-    }] : [{
+        products: [product('pr', false)]
+    } : {
         _self: 'sz'
-    }],
+    },
     // NOTE: this field is not used in the Android app, so no clue what it is
     ea: '$ea'
 });
