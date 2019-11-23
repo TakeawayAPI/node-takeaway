@@ -1,7 +1,7 @@
 {
   "name": "takeaway",
   "description": "Unofficial JavaScript implementation of the Takeaway.com API.",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "license": "MIT",
   "author": "Daniel Huisman <daniel@huisman.me> (https://danielhuisman.io)",
   "contributors": [],
