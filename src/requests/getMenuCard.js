@@ -1,5 +1,46 @@
 import {restaurant} from './restaurant';
 
+export const product = (tag, sizes = true) => ({
+    _self: tag,
+    id: 'id',
+    name: 'nm',
+    description: 'ds',
+    photoUrl: 'pu',
+    deliveryMethod: 'ah',
+    deliveryPrice: '$pc',
+    pickupPrice: '$tc',
+    information: foodInformation('fai'),
+    excludedFromMinimum: '!xfm',
+    options: {
+        _self: 'ss',
+        options: [{
+            _self: 'sd',
+            name: 'nm',
+            type: 'tp',
+            choices: {
+                _self: 'cc',
+                choices: [{
+                    _self: 'ch',
+                    id: 'id',
+                    name: 'nm',
+                    deliveryPrice: '$pc',
+                    pickupPrice: '$tc',
+                    excludedFromMinimum: '!xfm',
+                    information: foodInformation('fai')
+                }]
+            }
+        }]
+    },
+    sizes: sizes ? [{
+        _self: 'sz',
+        product: [product('pr', false)]
+    }] : [{
+        _self: 'sz'
+    }],
+    // NOTE: this field is not used in the Android app, so no clue what it is
+    ea: '$ea'
+});
+
 const foodInformation = (tag) => ({
     _self: tag,
     allergens: {
@@ -21,7 +62,8 @@ const foodInformation = (tag) => ({
         costPerLitrePickup: 'clp',
         volumePerKilogram: 'kgm',
         costPerGramDelivery: 'cgd',
-        costPerGramPickup: 'cgp'
+        costPerGramPickup: 'cgp',
+        costPerLiterDelivery: 'cld'
     }
 });
 
@@ -91,38 +133,7 @@ export default {
                         },
                         products: {
                             _self: 'ps',
-                            products: [{
-                                _self: 'pr',
-                                id: 'id',
-                                name: 'nm',
-                                description: 'ds',
-                                photoUrl: 'pu',
-                                deliveryMethod: 'ah',
-                                deliveryPrice: '$pc',
-                                pickupPrice: '$tc',
-                                information: foodInformation('fai'),
-                                excludedFromMinimum: '!xfm',
-                                options: {
-                                    _self: 'ss',
-                                    options: [{
-                                        _self: 'sd',
-                                        name: 'nm',
-                                        type: 'tp',
-                                        choices: {
-                                            _self: 'cc',
-                                            choices: [{
-                                                _self: 'ch',
-                                                id: 'id',
-                                                name: 'nm',
-                                                deliveryPrice: '$pc',
-                                                pickupPrice: '$tc',
-                                                excludedFromMinimum: '!xfm',
-                                                information: foodInformation('fai')
-                                            }]
-                                        }
-                                    }]
-                                }
-                            }]
+                            products: [product('pr')]
                         },
                         time: {
                             _self: 'ru',
@@ -138,6 +149,10 @@ export default {
                         _self: 'ak',
                         discounts: [discount('kk')]
                     }
+                },
+                plasticBag: {
+                    _self: 'ap',
+                    products: [product('pr')]
                 }
             }],
             // TODO: ap

@@ -89,5 +89,6 @@ export const restaurant = (tag) => ({
     popularDishes: {
         _self: 'pd',
         ids: ['pz']
-    }
+    },
+    headerImageUrl: 'mh'
 });
