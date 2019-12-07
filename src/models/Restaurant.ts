@@ -1,15 +1,22 @@
-import {Model, BaseModel} from './Model';
+import {Takeaway} from '../api';
 
-import Address from './Address';
-import Category from './Category';
-import Review from './Review';
-import Bank from './Bank';
+import {Model, BaseModel} from './Model';
+import Country from './Country';
+import {Address} from './Address';
+import {Category} from './Category';
+import {Review} from './Review';
+import {Bank} from './Bank';
 
 @Model
-class Restaurant extends BaseModel {
-    static relationships = ['address', 'categories']
+export class Restaurant extends BaseModel {
+    static relationships = ['country', 'address', 'categories', 'banks'];
 
-    constructor(takeaway, data, country) {
+    country: Country;
+    address: Address;
+    categories: Category[];
+    banks: Bank[];
+
+    constructor(takeaway: Takeaway, data, country: Country) {
         super(takeaway, data);
         this.country = country;
 

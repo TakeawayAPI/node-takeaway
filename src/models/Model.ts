@@ -1,5 +1,7 @@
-export const Model = (Target) => {
-    return new Proxy(Target, {
+import {Takeaway} from '../api';
+
+export const Model = (ProxyTarget) => {
+    return new Proxy(ProxyTarget, {
         construct(Target, args) {
             const model = new Target(...args);
 
@@ -29,8 +31,11 @@ export const Model = (Target) => {
 };
 
 export class BaseModel {
-    constructor(takeaway, data) {
+    takeaway: Takeaway;
+    data: any;
+
+    constructor(takeaway: Takeaway, data: any) {
         this.takeaway = takeaway;
         this.data = data;
     }
-};
+}

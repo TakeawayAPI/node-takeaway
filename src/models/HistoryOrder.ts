@@ -1,9 +1,15 @@
+import {Takeaway} from '../api';
+
 import {Model, BaseModel} from './Model';
-import HistoryProduct from './HistoryProduct';
+import {HistoryProduct} from './HistoryProduct';
+import {User} from './User';
 
 @Model
-class HistoryOrder extends BaseModel {
-    static relationships = ['user', 'products']
+export class HistoryOrder extends BaseModel {
+    static relationships = ['user', 'products'];
+
+    user: User;
+    products: HistoryProduct[];
 
     constructor(takeaway, data, user) {
         super(takeaway, data);
@@ -25,5 +31,3 @@ class HistoryOrder extends BaseModel {
         return this.products;
     }
 }
-
-export default HistoryOrder;

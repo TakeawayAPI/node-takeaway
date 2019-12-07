@@ -1,13 +1,20 @@
+import {Takeaway} from '../api';
+
 import {Model, BaseModel} from './Model';
-import Address from './Address';
-import Loyalty from './Loyalty';
-import HistoryOrder from './HistoryOrder';
+import {Address} from './Address';
+import {Country} from './Country';
+import {Loyalty} from './Loyalty';
+import {HistoryOrder} from './HistoryOrder';
 
 @Model
-class User extends BaseModel {
-    static relationships = ['country', 'addresses', 'loyalty']
+export class User extends BaseModel {
+    static relationships = ['country', 'addresses', 'loyalty'];
 
-    constructor(takeaway, data, country) {
+    country: Country;
+    addresses: Address[];
+    loyalty: Loyalty;
+
+    constructor(takeaway: Takeaway, data, country: Country) {
         super(takeaway, data);
         this.country = country;
 
@@ -41,6 +48,4 @@ class User extends BaseModel {
 
         return data.history.orders.map((order) => new HistoryOrder(this.takeaway, order, this));
     }
-};
-
-export default User;
+}

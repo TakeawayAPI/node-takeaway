@@ -15,7 +15,6 @@ import getURLs from './getURLs';
 import login from './login';
 import order from './order';
 import resetPassword from './resetPassword';
-
 import {reverse} from './util';
 
 const requests = {

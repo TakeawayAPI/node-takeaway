@@ -1,11 +1,15 @@
+import {Takeaway} from '../api';
+
 import {Model, BaseModel} from './Model';
-import Option from './Option';
+import {Option} from './Option';
 
 @Model
-class ProductSize extends BaseModel {
-    static relationships = ['options']
+export class ProductSize extends BaseModel {
+    static relationships = ['options'];
 
-    constructor(takeaway, data) {
+    options: Option[];
+
+    constructor(takeaway: Takeaway, data) {
         super(takeaway, data);
 
         if (data.options && data.options.options) {
@@ -16,5 +20,3 @@ class ProductSize extends BaseModel {
         }
     }
 }
-
-export default ProductSize;

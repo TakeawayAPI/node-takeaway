@@ -1,13 +1,16 @@
+import {Takeaway} from '../api';
+
 import {Model, BaseModel} from './Model';
-import User from './User';
-import Address from './Address';
-import Restaurant from './Restaurant';
+import {User} from './User';
+import {Address} from './Address';
+import {Restaurant} from './Restaurant';
+import {Order} from './Order';
 
 @Model
-class Country extends BaseModel {
-    static relationships = []
+export class Country extends BaseModel {
+    static relationships = [];
 
-    constructor(takeaway, data) {
+    constructor(takeaway: Takeaway, data) {
         super(takeaway, data);
     }
 
@@ -37,7 +40,7 @@ class Country extends BaseModel {
             latitude,
             longitude
         });
-        return new Address(data.location);
+        return new Address(this.takeaway, data.location);
     }
 
     async getRestaurants(postalCode, latitude, longitude) {
@@ -49,6 +52,15 @@ class Country extends BaseModel {
             language: this.takeaway.getLanguage()
         });
         return data.restaurants.restaurants.map((restaurant) => new Restaurant(this.takeaway, restaurant, this));
+    }
+
+    async order(orderInput) {
+        const data = await this.takeaway.getClient().order({
+            name: orderInput.name,
+            companyName: orderInput.companyName
+            // TODO
+        });
+        return new Order(this.takeaway, data);
     }
 }
 

@@ -1,6 +1,7 @@
+import {ResponseDefinition} from './client';
 import {print} from './util';
 
-const parseChild = (def, child, data) => {
+const parseChild = (def: string | ResponseDefinition, child) => {
     if (typeof def === 'object') {
         return [def._self, parseChildren(def, child)];
     } else {
@@ -11,7 +12,7 @@ const parseChild = (def, child, data) => {
             case '!':
                 return [sub, text === '1'];
             case '#':
-                return [sub, text === '' ? null : parseInt(text)];
+                return [sub, text === '' ? null : parseInt(text, 10)];
             case '.':
                 return [sub, text === '' ? null : parseFloat(text)];
             case '$': {
@@ -19,11 +20,11 @@ const parseChild = (def, child, data) => {
                 const i = text.includes('.') ? text.length - text.indexOf('.') - 1 : 0;
                 const t = text.replace('.', '');
                 if (i === 0) {
-                    return [sub, parseInt(`${t}00`)];
+                    return [sub, parseInt(`${t}00`, 10)];
                 } else if (i === 1) {
-                    return [sub, parseInt(`${t}0`)];
+                    return [sub, parseInt(`${t}0`, 10)];
                 }
-                return [sub, parseInt(t)];
+                return [sub, parseInt(t, 10)];
             }
             case '/':
                 return [sub, text === '' ? null : new RegExp(text)];
@@ -35,7 +36,7 @@ const parseChild = (def, child, data) => {
     }
 };
 
-const parseChildren = (definition, xml) => {
+const parseChildren = (definition: ResponseDefinition, xml) => {
     const data = {};
 
     if (!xml.children) {
@@ -49,8 +50,8 @@ const parseChildren = (definition, xml) => {
         }
 
         if (!definition[child.name]) {
-            console.log(`Unknown tag: "${child.name}", parent tag: "${xml.name}"`);
-            console.log(print(child));
+            console.debug(`Unknown tag: "${child.name}", parent tag: "${xml.name}"`);
+            console.debug(print(child));
         } else {
             const def = definition[child.name];
 
@@ -71,7 +72,7 @@ const parseChildren = (definition, xml) => {
     return data;
 };
 
-const parse = (definition, xml) => {
+const parse = (definition: ResponseDefinition, xml) => {
     // print(xml);
     return parseChildren(definition, xml);
 };

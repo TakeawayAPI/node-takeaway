@@ -1,9 +1,11 @@
-import TakeawayConfig from './config';
-import TakeawayClient from './client';
+import {TakeawayConfig} from './config';
+import {TakeawayClient} from './client';
 import {Country} from './models';
 
-export default class Takeaway {
-    constructor(client) {
+export class Takeaway {
+    client: TakeawayClient;
+
+    constructor(client: TakeawayConfig | TakeawayClient | null) {
         if (client instanceof TakeawayConfig) {
             this.client = new TakeawayClient(client);
         } else if (client instanceof TakeawayClient) {
@@ -27,11 +29,11 @@ export default class Takeaway {
 
     async getCountries() {
         const data = await this.getClient().getCountries();
-        return data.config.countries.map((country) => new Country(this, country, {hasLazyLoaded: true}));
+        return data.config.countries.map((country) => new Country(this, country));
     }
 
     async getCountryById(id) {
         const countries = await this.getCountries();
         return countries.filter((country) => country.id === id)[0];
     }
-};
+}

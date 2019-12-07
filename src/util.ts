@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 
-export const md5 = (data) => {
+export const md5 = (data: string) => {
     return crypto.createHash('md5').update(data).digest('hex');
 };
 

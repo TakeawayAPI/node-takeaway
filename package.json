@@ -14,40 +14,31 @@
   ],
   "main": "lib/index.js",
   "files": [
-    "lib",
+    "dist",
     "index.js",
     "README.md",
     "LICENSE.md",
     "package.json"
   ],
   "scripts": {
-    "lint": "eslint --color src",
-    "clean": "rimraf lib",
-    "build": "yarn run clean && yarn run lint && yarn run build:babel",
-    "build:babel": "babel src --out-dir lib --source-maps --copy-files",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "clean": "rimraf dist",
+    "build": "yarn run clean && yarn run lint && yarn run build:ts",
+    "build:ts": "tsc",
     "test": "echo \"Test are not implemented yet.\"",
-    "start": "cross-env NODE_ENV=production node example/index.js",
-    "watch": "babel-watch example/index.js",
+    "example": "ts-node example/index.js",
     "prepublish": "yarn run build"
   },
   "dependencies": {
     "@rgrove/parse-xml": "^2.0.1",
-    "babel-runtime": "^6.26.0",
+    "@types/isomorphic-fetch": "^0.0.35",
+    "@types/node": "^12.12.14",
     "isomorphic-fetch": "^2.2.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-eslint": "^10.0.2",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "babel-watch": "^7.0.0",
     "cross-env": "^5.1.1",
-    "eslint": "^6.1.0",
-    "eslint-config-google": "^0.13.0",
-    "eslint-plugin-babel": "^5.3.0",
-    "eslint-plugin-import": "^2.8.0"
+    "ts-node": "^8.5.4",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.3"
   }
 }

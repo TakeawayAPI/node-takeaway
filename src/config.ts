@@ -1,4 +1,12 @@
-export default class TakeawayConfig {
+export class TakeawayConfig {
+    language: string;
+    url: string;
+    password: string;
+    version: string;
+    systemVersion: string;
+    appVersion: string;
+    appName: string;
+
     constructor({
         language = 'nl',
         url = 'https://nl.citymeal.com/android/android.php',
@@ -32,4 +40,4 @@ export default class TakeawayConfig {
     getDefaultQuery() {
         return `&version=${this.version}&systemversion=${this.systemVersion};${this.appVersion}&appname=${this.appName}&language=${this.language}`;
     }
-};
+}

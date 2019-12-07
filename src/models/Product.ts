@@ -1,12 +1,19 @@
+import {Takeaway} from '../api';
+
 import {Model, BaseModel} from './Model';
-import Option from './Option';
-import ProductSize from './ProductSize';
+import {Option} from './Option';
+import {ProductSize} from './ProductSize';
 
 @Model
-class Product extends BaseModel {
-    static relationships = ['options', 'sizes']
+export class Product extends BaseModel {
+    static relationships = ['options', 'sizes'];
 
-    constructor(takeaway, data) {
+    options: Option[];
+    sizes: ProductSize[];
+    sizeIds: string[];
+    choiceIds: string[];
+
+    constructor(takeaway: Takeaway, data) {
         super(takeaway, data);
 
         if (data.options && data.options.options) {
