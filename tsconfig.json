@@ -17,7 +17,8 @@
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "noUnusedLocals": true,
-        "noUnusedParameters": false
+        "noUnusedParameters": false,
+        "declaration": true
     },
     "include": [
         "src/**/*"
