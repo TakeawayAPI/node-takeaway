@@ -7,7 +7,29 @@ import {Category} from './Category';
 import {Review} from './Review';
 import {Bank} from './Bank';
 
-interface Time {
+export enum PaymentMethod {
+    DELIVERY_CASH = '0',
+    DELIVERY_MOBILE_PIN = '2',
+    DELIVERY_CREDITCARD = '4',
+    DELIVERY_BANCONTACT = '20',
+    IDEAL = '3',
+    CREDITCARD = '6',
+    VOUCHER = '13',
+    SOFORT = '15',
+    MRCASH = '16',
+    PAYPAL = '18',
+    GOOGLE_PAY = '30',
+    PAYU = '31',
+    MOMO = '33'
+}
+
+export enum DeliveryMethod {
+    DELIVERY = '1',
+    DELIVERY_AND_PICKUP = '2',
+    PICKUP = '3'
+}
+
+export interface Time {
     currentTime?: Date;
     td?: {
         time?: {

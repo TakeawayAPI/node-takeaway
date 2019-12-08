@@ -6,6 +6,7 @@ import {Model, BaseModel, Data} from './Model';
 export class Address extends BaseModel {
     static relationships = [];
 
+    id?: string;
     street?: string;
     number?: string;
     postalCode?: string;

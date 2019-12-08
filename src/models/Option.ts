@@ -4,8 +4,8 @@ import {Model, BaseModel, Data} from './Model';
 import {Choice} from './Choice';
 
 export enum OptionType {
-    SINGLE,
-    MULTIPLE
+    SINGLE = 'SINGLE',
+    MULTIPLE = 'MULTIPLE'
 }
 
 const OPTION_TYPES = {
@@ -18,14 +18,15 @@ export class Option extends BaseModel {
     static relationships = ['choices'];
 
     name?: string;
-    type?: OptionType;
+    type?: string;
+    optionType?: OptionType;
     choices: Choice[];
 
     constructor(takeaway: Takeaway, data: Data) {
         super(takeaway, data);
 
         if (data.type) {
-            this.type = OPTION_TYPES[data.type];
+            this.optionType = OPTION_TYPES[data.type];
         }
 
         if (data.choices) {
