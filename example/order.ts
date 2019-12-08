@@ -1,15 +1,18 @@
-import {Takeaway} from '../src';
+import {Takeaway, OptionType, PaymentMethod, OrderDeliveryMethod} from '../src';
 
 (async () => {
     try {
         const takeaway = new Takeaway();
-        const postalCode = '7523';
+        const postalCode = process.env.POSTAL_CODE;
 
         const country = await takeaway.getCountryById('NL');
         const restaurants = await country.getRestaurants(postalCode, '', '');
 
         for (const restaurant of restaurants) {
-            if (!restaurant.data.name.toLowerCase().includes('domino')) {
+            if (!restaurant.name.toLowerCase().includes('domino')) {
+                continue;
+            }
+            if (!restaurant.address.street.toLowerCase().includes('hortensiastraat')) {
                 continue;
             }
 
@@ -26,12 +29,19 @@ import {Takeaway} from '../src';
                                 continue;
                             }
 
+                            const sizeId = product.id;
+                            const choiceIds = [];
+
                             console.log(product.data);
                             if (product.options) {
                                 console.log('Options:');
                                 console.group();
                                 for (const option of product.options) {
-                                    console.log(option.data);
+                                    console.log(option.optionType, option.data);
+
+                                    if (option.optionType === OptionType.SINGLE) {
+                                        choiceIds.push(option.choices[0].id);
+                                    }
 
                                     if (option.choices) {
                                         console.log('Choices:');
@@ -54,7 +64,36 @@ import {Takeaway} from '../src';
                             }
                             console.log();
 
-                            console.log('Order format:', product.toOrderFormat('N05701O35', ['OQPQO7PNON']));
+                            console.log('Order format:', product.toOrderFormat(sizeId, choiceIds));
+
+                            const order = await country.order({
+                                name: process.env.NAME,
+                                address: {
+                                    street: process.env.STREET,
+                                    city: process.env.CITY,
+                                    postalCode: process.env.POSTAL_CODE,
+                                    deliveryArea: ''
+                                },
+                                phone: process.env.PHONE,
+                                email: process.env.EMAIL,
+
+                                restaurant,
+                                products: [{
+                                    product,
+                                    sizeId,
+                                    choiceIds
+                                }],
+
+                                deliveryMethod: OrderDeliveryMethod.DELIVERY,
+                                deliveryTime: '',
+                                paymentMethod: PaymentMethod.DELIVERY_CASH,
+
+                                clientId: Math.floor(Math.random() * 10 ** 10).toString().padStart(10, '0')
+                            });
+                            console.log(order.data);
+
+                            // Exit after ordering
+                            process.exit(0);
                         }
                     }
                 }

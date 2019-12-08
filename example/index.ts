@@ -1,27 +1,33 @@
-import {inspect} from 'util';
+import {readdirSync} from 'fs';
 
-import {Takeaway} from '../src';
+// Parse npm run arguments
+const args = JSON.parse(process.env.npm_config_argv).original;
 
-(async () => {
-    try {
-        const takeaway = new Takeaway();
+// Find available files
+const names = readdirSync('./example')
+    .filter((f) => f !== 'index.ts' && f.substring(f.length - 3) === '.ts')
+    .map((f) => f.substring(0, f.length - 3));
 
-        const postalCode = '7523';
+// Help text
+const printHelp = () => {
+    console.log('Please specify a valid example:');
+    console.log('  - npm run example <name>');
+    console.log('  - yarn run example <name>');
+    console.log(`Options: ${names.join(', ')}`);
+};
 
-        const country = await takeaway.getCountryById('NL');
-        console.log(country);
-        const restaurants = await country.getRestaurants(postalCode, '', '');
+// Check if there are enough arguments
+if (args.length <= args.indexOf('example') + 1) {
+    printHelp();
+} else {
+    const name = args[args.indexOf('example') + 1];
+    if (!names.includes(name)) {
+        printHelp();
+    } else {
+        console.log(`Running example ./example/${name}.ts`);
 
-        const user = await country.login('daniel@huisman.me', 'test');
-        const history = await user.getHistory(1);
-        await history[0].getDetails();
+        // Execute the file
+        import(`./${name}.ts`);
 
-        console.log(inspect(history[0], false, null));
-        console.log(inspect(await user.getLoyalty(), false, null));
-
-        await restaurants[0].getMenu(postalCode);
-        console.log(inspect(restaurants[0].categories[0].products, false, null));
-    } catch (err) {
-        console.error(err);
     }
-})();
+}
