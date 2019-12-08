@@ -1,12 +1,17 @@
 import {Takeaway} from '../api';
 
-import {Model, BaseModel} from './Model';
+import {Model, BaseModel, Data} from './Model';
 
 @Model
 export class Loyalty extends BaseModel {
     static relationships = [];
 
-    constructor(takeaway: Takeaway, data) {
+    unavailable?: boolean;
+    points?: string;
+    url?: string;
+    externalBrowser?: boolean;
+
+    constructor(takeaway: Takeaway, data: Data) {
         super(takeaway, data);
     }
 }

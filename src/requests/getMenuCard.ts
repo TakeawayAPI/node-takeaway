@@ -1,6 +1,6 @@
 import {restaurant} from './restaurant';
 
-export const product = (tag, sizes = true) => ({
+export const product = (tag: string, sizes = true) => ({
     _self: tag,
     id: 'id',
     name: 'nm',
@@ -41,7 +41,7 @@ export const product = (tag, sizes = true) => ({
     ea: '$ea'
 });
 
-const foodInformation = (tag) => ({
+const foodInformation = (tag: string) => ({
     _self: tag,
     allergens: {
         _self: 'all',
@@ -67,7 +67,7 @@ const foodInformation = (tag) => ({
     }
 });
 
-export const discount = (tag) => ({
+export const discount = (tag: string) => ({
     _self: tag,
     type: 'tp',
     name: 'nm',

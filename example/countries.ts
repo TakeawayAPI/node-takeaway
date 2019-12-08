@@ -1,10 +1,10 @@
 import {inspect} from 'util';
 
-import {Takeaway} from '../src';
+import {Takeaway, TakeawayConfig} from '../src';
 
 const DEBUG = false;
 
-const print = (obj) => {
+const print = (obj: any) => {
     if (DEBUG) {
         console.log(inspect(obj, false, null));
     }
@@ -26,10 +26,10 @@ const inputs = [{
         const input = inputs[0];
 
         // Initialize API
-        const takeaway = new Takeaway({
+        const takeaway = new Takeaway(new TakeawayConfig({
             language: input.language,
             url: input.url
-        });
+        }));
 
         // Get country
         const country = await takeaway.getCountryById(input.language.toUpperCase());

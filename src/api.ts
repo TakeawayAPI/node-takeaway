@@ -5,7 +5,7 @@ import {Country} from './models';
 export class Takeaway {
     client: TakeawayClient;
 
-    constructor(client: TakeawayConfig | TakeawayClient | null) {
+    constructor(client?: TakeawayConfig | TakeawayClient) {
         if (client instanceof TakeawayConfig) {
             this.client = new TakeawayClient(client);
         } else if (client instanceof TakeawayClient) {
@@ -29,11 +29,11 @@ export class Takeaway {
 
     async getCountries() {
         const data = await this.getClient().getCountries();
-        return data.config.countries.map((country) => new Country(this, country));
+        return data.config.countries.map((country: any) => new Country(this, country));
     }
 
-    async getCountryById(id) {
+    async getCountryById(id: string) {
         const countries = await this.getCountries();
-        return countries.filter((country) => country.id === id)[0];
+        return countries.filter((country: any) => country.id === id)[0];
     }
 }

@@ -10,6 +10,18 @@ import {HistoryOrder} from './HistoryOrder';
 export class User extends BaseModel {
     static relationships = ['country', 'addresses', 'loyalty'];
 
+    id?: string;
+    token?: string;
+    firstName?: string;
+    lastName?: string;
+    email?: string;
+    oldOrders?: string;
+    ac?: string;
+    social?: {
+        id?: string;
+        username?: string;
+    };
+    migrated?: boolean;
     country: Country;
     addresses: Address[];
     loyalty: Loyalty;
@@ -19,8 +31,10 @@ export class User extends BaseModel {
         this.country = country;
 
         if (data.contacts) {
-            this.addresses = data.contacts.addresses.map((address) => new Address(takeaway, address));
+            this.addresses = data.contacts.addresses.map((address: any) => new Address(takeaway, address));
             delete data.contacts;
+        } else {
+            this.addresses = [];
         }
     }
 
@@ -46,6 +60,6 @@ export class User extends BaseModel {
             page
         });
 
-        return data.history.orders.map((order) => new HistoryOrder(this.takeaway, order, this));
+        return data.history.orders.map((order: any) => new HistoryOrder(this.takeaway, order, this));
     }
 }

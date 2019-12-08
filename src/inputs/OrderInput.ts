@@ -1,5 +1,4 @@
-class OrderInput {
-
+export class OrderInput {
+    name: string;
+    companyName?: string;
 }
-
-export default OrderInput;

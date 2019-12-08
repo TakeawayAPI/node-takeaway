@@ -1,6 +1,6 @@
 import {deliveryMethods, deliveryCosts} from './base';
 
-const time = (tag) => ({
+const time = (tag: string) => ({
     _self: tag,
     currentTime: '*ct',
     td: {
@@ -21,7 +21,7 @@ const time = (tag) => ({
     }
 });
 
-export const restaurant = (tag) => ({
+export const restaurant = (tag: string) => ({
     _self: tag,
     id: 'ri',
     name: 'nm',

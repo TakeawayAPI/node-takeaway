@@ -1,19 +1,49 @@
 import {Takeaway} from '../api';
 
-import {Model, BaseModel} from './Model';
+import {Model, BaseModel, Data} from './Model';
 import {Option} from './Option';
 import {ProductSize} from './ProductSize';
+
+export interface FoodInformation {
+    allergens?: {
+        ids?: string[];
+    };
+    additives?: {
+        ids?: string[];
+    };
+    nutritionFacts?: string;
+    extra?: {
+        caffeine?: string;
+        alcoholPerVolume?: string;
+        bottleDeposit?: string;
+        volumePerLitre?: string;
+        costPerLitreDelivery?: string;
+        costPerLitrePickup?: string;
+        volumePerKilogram?: string;
+        costPerGramDelivery?: string;
+        costPerGramPickup?: string;
+        costPerLiterDelivery?: string;
+    };
+}
 
 @Model
 export class Product extends BaseModel {
     static relationships = ['options', 'sizes'];
 
+    id?: string;
+    description?: string;
+    photoUrl?: string;
+    deliveryMethod?: string;
+    deliveryPrice?: number;
+    pickupPrice?: number;
+    excludedFromMinimum?: boolean;
+    information?: FoodInformation;
     options: Option[];
     sizes: ProductSize[];
     sizeIds: string[];
     choiceIds: string[];
 
-    constructor(takeaway: Takeaway, data) {
+    constructor(takeaway: Takeaway, data: Data) {
         super(takeaway, data);
 
         if (data.options && data.options.options) {

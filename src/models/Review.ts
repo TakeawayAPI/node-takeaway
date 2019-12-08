@@ -1,12 +1,20 @@
 import {Takeaway} from '../api';
 
-import {Model, BaseModel} from './Model';
+import {Model, BaseModel, Data} from './Model';
 
 @Model
 export class Review extends BaseModel {
     static relationships = [];
 
-    constructor(takeaway: Takeaway, data) {
+    name?: string;
+    time?: string;
+    description?: string;
+    quality?: number;
+    delivery?: string;
+    sunday?: boolean;
+    orderMethod?: string;
+
+    constructor(takeaway: Takeaway, data: Data) {
         super(takeaway, data);
     }
 }

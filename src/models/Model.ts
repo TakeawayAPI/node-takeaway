@@ -30,11 +30,15 @@ export const Model = (ProxyTarget) => {
     });
 };
 
+export interface Data {
+    [k: string]: any;
+}
+
 export class BaseModel {
     takeaway: Takeaway;
     data: any;
 
-    constructor(takeaway: Takeaway, data: any) {
+    constructor(takeaway: Takeaway, data: Data) {
         this.takeaway = takeaway;
         this.data = data;
     }
