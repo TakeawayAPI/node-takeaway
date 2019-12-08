@@ -157,7 +157,7 @@ export class Country extends BaseModel {
 
             // Payment information
             paymentMethod: orderInput.paymentMethod,
-            bankId: '', // TODO
+            bankId: orderInput.bank ? orderInput.bank.id : '',
             paymentPart: '', // TODO
             voucherCode: orderInput.paymentMethod === PaymentMethod.VOUCHER ? orderInput.voucherCode : '',
 

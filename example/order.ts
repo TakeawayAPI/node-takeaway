@@ -1,3 +1,5 @@
+import {inspect} from 'util';
+
 import {Takeaway, OptionType, PaymentMethod, OrderDeliveryMethod} from '../src';
 
 (async () => {
@@ -17,6 +19,19 @@ import {Takeaway, OptionType, PaymentMethod, OrderDeliveryMethod} from '../src';
             }
 
             await restaurant.getMenu(postalCode);
+            await restaurant.getBanks();
+
+            console.log('Restaurant:');
+            console.group();
+            console.log(inspect(restaurant.data, false, null));
+            console.groupEnd();
+
+            console.log('Banks:');
+            console.group();
+            for (const bank of restaurant.banks) {
+                console.log(bank.data);
+            }
+            console.groupEnd();
 
             if (restaurant.categories) {
                 for (const category of restaurant.categories) {
@@ -72,7 +87,7 @@ import {Takeaway, OptionType, PaymentMethod, OrderDeliveryMethod} from '../src';
                                     street: process.env.STREET,
                                     city: process.env.CITY,
                                     postalCode: process.env.POSTAL_CODE,
-                                    deliveryArea: ''
+                                    deliveryArea: process.env.POSTAL_CODE.substring(0, 4)
                                 },
                                 phone: process.env.PHONE,
                                 email: process.env.EMAIL,
@@ -86,7 +101,8 @@ import {Takeaway, OptionType, PaymentMethod, OrderDeliveryMethod} from '../src';
 
                                 deliveryMethod: OrderDeliveryMethod.DELIVERY,
                                 deliveryTime: '',
-                                paymentMethod: PaymentMethod.DELIVERY_CASH,
+                                paymentMethod: PaymentMethod.IDEAL,
+                                bank: restaurant.banks.find((bank) => bank.name.toLowerCase() === 'bunq'),
 
                                 clientId: Math.floor(Math.random() * 10 ** 10).toString().padStart(10, '0')
                             });
