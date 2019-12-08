@@ -70,7 +70,7 @@ export class Country extends BaseModel {
         super(takeaway, data);
     }
 
-    async login(email: string, credentials: string) {
+    async login(email: string, credentials: string): Promise<User> {
         const data = await this.takeaway.getClient().login({
             email,
             credentials,
@@ -80,7 +80,7 @@ export class Country extends BaseModel {
         return new User(this.takeaway, data.login, this);
     }
 
-    async socialLogin(socialType: string, socialToken: string) {
+    async socialLogin(socialType: string, socialToken: string): Promise<User> {
         const data = await this.takeaway.getClient().login({
             socialType,
             socialToken,
@@ -90,7 +90,7 @@ export class Country extends BaseModel {
         return new User(this.takeaway, data.login, this);
     }
 
-    async getLocation(latitude: string, longitude: string) {
+    async getLocation(latitude: string, longitude: string): Promise<Address> {
         const data = await this.takeaway.getClient().getGeoLocation({
             country: this.code,
             latitude,
@@ -99,7 +99,7 @@ export class Country extends BaseModel {
         return new Address(this.takeaway, data.location);
     }
 
-    async getRestaurants(postalCode: string, latitude: string, longitude: string) {
+    async getRestaurants(postalCode: string, latitude: string, longitude: string): Promise<Restaurant[]> {
         const data = await this.takeaway.getClient().getRestaurants({
             country: this.code,
             postalCode,
@@ -110,7 +110,7 @@ export class Country extends BaseModel {
         return data.restaurants.restaurants.map((restaurant) => new Restaurant(this.takeaway, restaurant, this));
     }
 
-    async order(orderInput: OrderInput) {
+    async order(orderInput: OrderInput): Promise<Order> {
         const data = await this.takeaway.getClient().order({
             name: orderInput.name,
             companyName: orderInput.companyName

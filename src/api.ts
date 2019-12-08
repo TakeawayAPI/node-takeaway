@@ -27,12 +27,12 @@ export class Takeaway {
         return this.getConfig().language;
     }
 
-    async getCountries() {
+    async getCountries(): Promise<Country[]> {
         const data = await this.getClient().getCountries();
         return data.config.countries.map((country: any) => new Country(this, country));
     }
 
-    async getCountryById(id: string) {
+    async getCountryById(id: string): Promise<Country> {
         const countries = await this.getCountries();
         return countries.filter((country: any) => country.id === id)[0];
     }

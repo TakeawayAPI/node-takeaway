@@ -19,7 +19,7 @@ import {Takeaway} from '../src';
         console.log(inspect(history[0], false, null));
         console.log(inspect(await user.getLoyalty(), false, null));
 
-        await restaurants[0].getMenu();
+        await restaurants[0].getMenu(postalCode);
         console.log(inspect(restaurants[0].categories[0].products, false, null));
     } catch (err) {
         console.error(err);

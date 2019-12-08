@@ -38,7 +38,7 @@ export class User extends BaseModel {
         }
     }
 
-    async getLoyalty() {
+    async getLoyalty(): Promise<Loyalty> {
         const data = await this.takeaway.getClient().getLoyaltyPoints({
             email: this.email,
             credentials: this.token,
@@ -51,7 +51,7 @@ export class User extends BaseModel {
         return this.loyalty;
     }
 
-    async getHistory(page = 1) {
+    async getHistory(page = 1): Promise<HistoryOrder[]> {
         const data = await this.takeaway.getClient().getHistory({
             email: this.email,
             credentials: this.token,

@@ -130,7 +130,7 @@ export class Restaurant extends BaseModel {
         delete data.address;
     }
 
-    async getMenu(postalCode: string) {
+    async getMenu(postalCode: string): Promise<Category[]> {
         const data = await this.takeaway.getClient().getMenuCard({
             restaurantId: this.id,
             country: this.country.code,
@@ -149,7 +149,7 @@ export class Restaurant extends BaseModel {
         }
     }
 
-    async getReviews(page = 1) {
+    async getReviews(page = 1): Promise<Review[]> {
         const data = await this.takeaway.getClient().getReviews({
             restaurantId: this.id,
             page
@@ -169,7 +169,7 @@ export class Restaurant extends BaseModel {
         return data.time;
     }
 
-    async getBanks() {
+    async getBanks(): Promise<Bank[]> {
         const data = await this.takeaway.getClient().getBanks({
             restaurantId: this.id
         });

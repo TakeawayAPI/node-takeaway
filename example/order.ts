@@ -54,7 +54,7 @@ import {Takeaway} from '../src';
                             }
                             console.log();
 
-                            console.log('Order format:', product.toOrderFormat('N05701O35', ['OO3RO7PNON']));
+                            console.log('Order format:', product.toOrderFormat('N05701O35', ['OQPQO7PNON']));
                         }
                     }
                 }

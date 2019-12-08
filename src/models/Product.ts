@@ -31,6 +31,7 @@ export class Product extends BaseModel {
     static relationships = ['options', 'sizes'];
 
     id?: string;
+    name?: string;
     description?: string;
     photoUrl?: string;
     deliveryMethod?: string;
