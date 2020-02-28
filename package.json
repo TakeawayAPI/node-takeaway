@@ -1,7 +1,7 @@
 {
   "name": "takeaway",
   "description": "Unofficial JavaScript implementation of the Takeaway.com API.",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "license": "MIT",
   "author": "Daniel Huisman <daniel@huisman.me> (https://danielhuisman.io)",
   "contributors": [],
@@ -15,15 +15,14 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
-    "dist",
-    "index.js",
+    "lib",
     "README.md",
     "LICENSE.md",
     "package.json"
   ],
   "scripts": {
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "clean": "rimraf dist",
+    "clean": "rimraf lib",
     "build": "yarn run clean && yarn run lint && yarn run build:ts",
     "build:ts": "tsc",
     "test": "echo \"Test are not implemented yet.\"",
