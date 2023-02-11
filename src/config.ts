@@ -12,8 +12,8 @@ export class TakeawayConfig {
         url = 'https://nl.citymeal.com/android/android.php',
         password = '4ndro1d',
         version = '5.7',
-        systemVersion = '24',
-        appVersion = '4.15.3.2',
+        systemVersion = '29',
+        appVersion = '8.29.0',
         appName = 'Takeaway.com'
     } = {}) {
         this.language = language;
