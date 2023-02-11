@@ -1,9 +1,9 @@
 {
   "name": "takeaway",
   "description": "Unofficial JavaScript implementation of the Takeaway.com API.",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "license": "MIT",
-  "author": "Daniel Huisman <daniel@huisman.me> (https://danielhuisman.io)",
+  "author": "Danielle Huisman <danielle@huisman.me> (https://github.com/DanielleHuisman)",
   "contributors": [],
   "repository": "github:TakeawayAPI/node-takeaway",
   "keywords": [
@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "dotenv-cli": "^3.1.0",
+    "rimraf": "^4.1.2",
     "ts-node": "^8.5.4",
     "tslint": "^5.20.1",
     "typescript": "^3.7.3"
