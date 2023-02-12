@@ -26,11 +26,11 @@ export interface OrderInput {
     email: string;
 
     restaurant: Restaurant;
-    products: Array<{
+    products: ({
         product: Product;
         sizeId: string;
         choiceIds: string[];
-    }>;
+    })[];
 
     remarks?: string;
     newsLetter?: boolean;

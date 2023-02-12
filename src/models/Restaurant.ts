@@ -56,11 +56,11 @@ export class Restaurant extends BaseModel {
     open?: boolean;
     branch?: string;
     payments?: {
-        methods?: Array<{
+        methods?: ({
             id?: string;
             fixedCosts?: number;
             percentageCosts?: string;
-        }>;
+        })[];
     };
     estimatedDeliveryTime?: string;
     polygonStatus?: string;
@@ -86,7 +86,7 @@ export class Restaurant extends BaseModel {
         };
     };
     deliveryDistricts?: {
-        areas?: Array<{
+        areas?: ({
             postalCode?: string[];
             minimumAmount?: number;
             costs?: {
@@ -94,7 +94,7 @@ export class Restaurant extends BaseModel {
                 to?: number;
                 costs?: number;
             };
-        }>;
+        })[];
     };
     kitchens?: {
         ids: string[];
