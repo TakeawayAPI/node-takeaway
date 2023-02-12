@@ -1,4 +1,4 @@
-import parseXml from '@rgrove/parse-xml';
+import {parseXml} from '@rgrove/parse-xml';
 
 import {TakeawayConfig} from './config';
 import parse from './parse';
@@ -51,7 +51,11 @@ export class TakeawayClient {
     order = (data?: RequestParameters, options?: RequestOptions) => this.request(requests.order, data, options);
     resetPassword = (data?: RequestParameters, options?: RequestOptions) => this.request(requests.resetPassword, data, options);
 
-    async request(definition: RequestDefinition, data?: RequestParameters, {format = 'json', debug = false, ...options}: RequestOptions = {}) {
+    async request(
+        definition: RequestDefinition,
+        data?: RequestParameters,
+        {format = 'json', debug = false, ...options}: RequestOptions = {}
+    ): Promise<any> {
         // Generate parameter list from data
         const parameters = definition.parameters(data);
 
