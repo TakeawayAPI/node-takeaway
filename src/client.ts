@@ -1,4 +1,3 @@
-import fetch from 'isomorphic-fetch';
 import parseXml from '@rgrove/parse-xml';
 
 import {TakeawayConfig} from './config';

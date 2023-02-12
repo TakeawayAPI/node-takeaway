@@ -9,7 +9,6 @@ import {Takeaway} from '../src';
         const postalCode = '7523';
 
         const country = await takeaway.getCountryById('NL');
-        console.log(country);
         const restaurants = await country.getRestaurants(postalCode, '', '');
 
         const user = await country.login('daniel@huisman.me', 'test');
