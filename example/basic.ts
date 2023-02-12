@@ -11,7 +11,7 @@ import {Takeaway} from '../src';
         const country = await takeaway.getCountryById('NL');
         const restaurants = await country.getRestaurants(postalCode, '', '');
 
-        const user = await country.login('daniel@huisman.me', 'test');
+        const user = await country.login('<email>', '<password>');
         const history = await user.getHistory(1);
         await history[0].getDetails();
 

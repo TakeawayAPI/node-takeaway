@@ -64,7 +64,10 @@ export default {
                     s6: 's6',
                     s7: 's7',
                     s8: 's8',
-                    s9: 's9'
+                    s9: 's9',
+                    s10: 's10',
+                    s11: 's11',
+                    s12: 's12'
                 },
                 information: 'nt',
                 grade: '#rv',
@@ -82,10 +85,20 @@ export default {
                 deliveryCosts: deliveryCosts('dc'),
                 hasDiscounts: '!hd',
                 hasFoodTracker: '!ft',
-                distance: '.ds'
+                distance: '.ds',
+                cloudinaryLogo: 'cloudinaryLogo',
+                eta: {
+                    _self: 'eta',
+                    min: '#min',
+                    max: '#max'
+                },
+                // Unknown attributes
+                rvd: 'rvd'
             }],
             weekday: 'wd',
-            currentTime: '*ct'
+            currentTime: '*ct',
+            // Unknown attributes
+            unx: 'unx'
         },
     }
 };

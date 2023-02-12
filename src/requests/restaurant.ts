@@ -39,6 +39,10 @@ export const restaurant = (tag: string) => ({
         latitude: 'lt',
         longitude: 'ln'
     },
+    telephone: {
+      _self: 'tel',
+      number: 'no1'
+    },
     legal: {
         _self: 'lgl',
         owner: 'own',
@@ -61,7 +65,11 @@ export const restaurant = (tag: string) => ({
         grade: '#rv',
         ratingCount: '#bd',
         hasFoodTracker: '!ft',
-        cim: 'cim'
+        cloudinaryLogo: 'cloudinaryLogo',
+        // Unknown attributes
+        cim: 'cim',
+        rvd: 'rvd',
+        eba: 'eba'
     },
     deliveryMethods: deliveryMethods('dm'),
     deliveryCosts: deliveryCosts('dc'),
@@ -90,5 +98,23 @@ export const restaurant = (tag: string) => ({
         _self: 'pd',
         ids: ['pz']
     },
-    headerImageUrl: 'mh'
+    headerImageUrl: 'mh',
+    slug: 'murl',
+    cloudinaryHeader: 'cloudinaryHeader',
+    // Unknown attributes
+    ac: 'ac',
+    ddf: 'ddf',
+    pne: 'pne',
+    pty: 'pty',
+    pro: 'pro',
+    rci: 'rci',
+    rte: 'rte',
+    rt: {
+        _self: 'rt',
+        cr: 'cr',
+        prr: 'prr'
+    },
+    sco: 'sco',
+    smid: 'smid',
+    tr: 'tr',
 });

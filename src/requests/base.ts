@@ -8,6 +8,7 @@ export const descriptions = (tag) => ({
     it: 'it',
     lu: 'lu',
     nl: 'nl',
+    no: 'no',
     pl: 'pl',
     pt: 'pt',
     ro: 'ro',
@@ -22,7 +23,12 @@ export const deliveryMethods = (tag) => ({
         _self: 'dl',
         open: '!op',
         orderAhead: '!oh',
-        mealPrepTime: '#mpt'
+        mealPrepTime: '#mpt',
+        eta: {
+            _self: 'eta',
+            min: '#min',
+            max: '#max'
+        }
     },
     pickup: {
         _self: 'pu',
@@ -40,7 +46,9 @@ export const deliveryCosts = (tag) => ({
         from: '#fr',
         to: '#to',
         costs: '$ct'
-    }
+    },
+    // Unknown attributes
+    ddf: 'ddf'
 });
 
 export const contacts = (tag) => ({

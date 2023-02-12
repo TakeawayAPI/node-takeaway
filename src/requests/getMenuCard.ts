@@ -37,6 +37,7 @@ export const product = (tag: string, sizes = true) => ({
     } : {
         _self: 'sz'
     },
+    cloudinaryProduct: 'cloudinaryProduct',
     // NOTE: this field is not used in the Android app, so no clue what it is
     ea: '$ea'
 });
@@ -139,7 +140,9 @@ export default {
                             _self: 'ru',
                             start: '*st',
                             end: '*en'
-                        }
+                        },
+                        cloudinaryChain: 'cloudinaryChain',
+                        ctoi: 'ctoi'
                     }],
                     discounts1: {
                         _self: 'ks',

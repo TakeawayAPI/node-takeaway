@@ -52,7 +52,18 @@ export default {
                     _self: 'erp',
                     methods: ['pm']
                 },
-                si: 'si'
+                // Unknown attributes
+                cre: 'cre',
+                dcr: 'dcr',
+                gse: 'gse',
+                lyn: 'lyn',
+                lyv: 'lyv',
+                mor: 'mor',
+                pse: 'pse',
+                psw: 'psw',
+                si: 'si',
+                taa: 'taa',
+                tip: 'tip'
             }],
             kitchens: {
                 _self: 'cs',
