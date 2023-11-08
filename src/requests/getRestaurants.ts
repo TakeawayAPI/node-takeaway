@@ -1,4 +1,4 @@
-import {deliveryMethods, deliveryCosts} from './base';
+import {deliveryCosts, deliveryMethods} from './base';
 
 export default {
     parameters: ({postalCode, country, latitude, longitude, language, isLocationAccurate = '1'}) => [
@@ -24,81 +24,85 @@ export default {
                 vietnamDistrictId: 'vi',
                 vietnamCityId: 'va'
             },
-            restaurants: [{
-                _self: 'rt',
-                id: 'id',
-                name: 'nm',
-                tip: '!tip',
-                new: '!new',
-                branch: 'bn',
-                open: '!op',
-                payment: {
-                    _self: 'pm',
-                    methods: [{
-                        _self: 'me',
-                        id: 'mi'
-                    }]
-                },
-                estimatedDeliveryTime: 'est',
-                deliveryMethods: deliveryMethods('dm'),
-                polygonStatus: 'ply',
-                kitchens: {
-                    _self: 'cs',
-                    ids: ['ct']
-                },
-                subKitchens: {
-                    _self: 'sc',
-                    ids: ['si']
-                },
-                popularDishes: {
-                    _self: 'pd',
-                    ids: ['pz']
-                },
-                sorting: {
-                    _self: 'sr',
-                    s1: 's1',
-                    s2: 's2',
-                    s3: 's3',
-                    s4: 's4',
-                    s5: 's5',
-                    s6: 's6',
-                    s7: 's7',
-                    s8: 's8',
-                    s9: 's9',
-                    s10: 's10',
-                    s11: 's11',
-                    s12: 's12'
-                },
-                information: 'nt',
-                grade: '#rv',
-                address: {
-                    _self: 'ad',
-                    street: 'st',
-                    city: 'ci',
-                    latitude: 'lt',
-                    longitude: 'ln',
-                    vietnamDistrict: 'pp'
-                },
-                ratingCount: '#bd',
-                logoUrl: 'lo',
-                cacheKey: 'ck',
-                deliveryCosts: deliveryCosts('dc'),
-                hasDiscounts: '!hd',
-                hasFoodTracker: '!ft',
-                distance: '.ds',
-                cloudinaryLogo: 'cloudinaryLogo',
-                eta: {
-                    _self: 'eta',
-                    min: '#min',
-                    max: '#max'
-                },
-                // Unknown attributes
-                rvd: 'rvd'
-            }],
+            restaurants: [
+                {
+                    _self: 'rt',
+                    id: 'id',
+                    name: 'nm',
+                    tip: '!tip',
+                    new: '!new',
+                    branch: 'bn',
+                    open: '!op',
+                    payment: {
+                        _self: 'pm',
+                        methods: [
+                            {
+                                _self: 'me',
+                                id: 'mi'
+                            }
+                        ]
+                    },
+                    estimatedDeliveryTime: 'est',
+                    deliveryMethods: deliveryMethods('dm'),
+                    polygonStatus: 'ply',
+                    kitchens: {
+                        _self: 'cs',
+                        ids: ['ct']
+                    },
+                    subKitchens: {
+                        _self: 'sc',
+                        ids: ['si']
+                    },
+                    popularDishes: {
+                        _self: 'pd',
+                        ids: ['pz']
+                    },
+                    sorting: {
+                        _self: 'sr',
+                        s1: 's1',
+                        s2: 's2',
+                        s3: 's3',
+                        s4: 's4',
+                        s5: 's5',
+                        s6: 's6',
+                        s7: 's7',
+                        s8: 's8',
+                        s9: 's9',
+                        s10: 's10',
+                        s11: 's11',
+                        s12: 's12'
+                    },
+                    information: 'nt',
+                    grade: '#rv',
+                    address: {
+                        _self: 'ad',
+                        street: 'st',
+                        city: 'ci',
+                        latitude: 'lt',
+                        longitude: 'ln',
+                        vietnamDistrict: 'pp'
+                    },
+                    ratingCount: '#bd',
+                    logoUrl: 'lo',
+                    cacheKey: 'ck',
+                    deliveryCosts: deliveryCosts('dc'),
+                    hasDiscounts: '!hd',
+                    hasFoodTracker: '!ft',
+                    distance: '.ds',
+                    cloudinaryLogo: 'cloudinaryLogo',
+                    eta: {
+                        _self: 'eta',
+                        min: '#min',
+                        max: '#max'
+                    },
+                    // Unknown attributes
+                    rvd: 'rvd'
+                }
+            ],
             weekday: 'wd',
             currentTime: '*ct',
             // Unknown attributes
             unx: 'unx'
-        },
+        }
     }
 };

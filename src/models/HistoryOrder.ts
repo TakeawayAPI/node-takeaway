@@ -1,8 +1,8 @@
-import {Takeaway} from '../api';
+import {type Takeaway} from '../api';
 
-import {Model, BaseModel, Data} from './Model';
 import {HistoryProduct} from './HistoryProduct';
-import {User} from './User';
+import {BaseModel, type Data, Model} from './Model';
+import {type User} from './User';
 
 @Model
 export class HistoryOrder extends BaseModel {

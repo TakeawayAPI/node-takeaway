@@ -70,7 +70,5 @@ export default {
         productRemarks,
         isLocationAccurate
     ],
-    response: {
-
-    }
+    response: {}
 };

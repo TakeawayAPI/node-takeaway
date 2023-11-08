@@ -1,9 +1,5 @@
 export default {
-    parameters: ({country, language}) => [
-        'geturls',
-        country,
-        language
-    ],
+    parameters: ({country, language}) => ['geturls', country, language],
     response: {
         urls: {
             _self: 'gu',
@@ -11,11 +7,13 @@ export default {
             language: 'ln',
             urls: {
                 _self: 'urls',
-                items: [{
-                    _self: 'it',
-                    type: 'typ',
-                    url: 'url'
-                }]
+                items: [
+                    {
+                        _self: 'it',
+                        type: 'typ',
+                        url: 'url'
+                    }
+                ]
             }
         }
     }

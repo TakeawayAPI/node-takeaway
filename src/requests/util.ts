@@ -1,8 +1,11 @@
-import {ResponseDefinition} from '../client';
+import type {ResponseDefinition} from '../client';
 
 export const TYPES = '!#.$/*';
 
-export const reverseChild = (key: string, value: string | ResponseDefinition): [string, string | ResponseDefinition] => {
+export const reverseChild = (
+    key: string,
+    value: string | ResponseDefinition
+): [string, string | ResponseDefinition] => {
     if (typeof value === 'object') {
         // Type hint
         value = value as ResponseDefinition;
@@ -30,7 +33,7 @@ export const reverse = (definition: ResponseDefinition) => {
 
         if (Array.isArray(value)) {
             const [k, v] = reverseChild(key, value[0]);
-            output[k] = [v] as (string[] | ResponseDefinition[]);
+            output[k] = [v] as string[] | ResponseDefinition[];
         } else {
             const [k, v] = reverseChild(key, value);
             output[k] = v;

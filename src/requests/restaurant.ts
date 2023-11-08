@@ -1,4 +1,4 @@
-import {deliveryMethods, deliveryCosts} from './base';
+import {deliveryCosts, deliveryMethods} from './base';
 
 const time = (tag: string) => ({
     _self: tag,
@@ -40,8 +40,8 @@ export const restaurant = (tag: string) => ({
         longitude: 'ln'
     },
     telephone: {
-      _self: 'tel',
-      number: 'no1'
+        _self: 'tel',
+        number: 'no1'
     },
     legal: {
         _self: 'lgl',
@@ -75,24 +75,28 @@ export const restaurant = (tag: string) => ({
     deliveryCosts: deliveryCosts('dc'),
     payment: {
         _self: 'pm',
-        methods: [{
-            _self: 'me',
-            id: 'mi',
-            fixedCosts: '$mt',
-            percentageCosts: 'mf'
-        }]
+        methods: [
+            {
+                _self: 'me',
+                id: 'mi',
+                fixedCosts: '$mt',
+                percentageCosts: 'mf'
+            }
+        ]
     },
     deliveryTime: time('dt'),
     pickupTime: time('pt'),
     deliveryDistricts: {
         _self: 'dd',
-        areas: [{
-            ...deliveryCosts('da'),
-            postalCode: {
-                _self: 'pc',
-                codes: ['pp']
+        areas: [
+            {
+                ...deliveryCosts('da'),
+                postalCode: {
+                    _self: 'pc',
+                    codes: ['pp']
+                }
             }
-        }]
+        ]
     },
     popularDishes: {
         _self: 'pd',
@@ -116,5 +120,5 @@ export const restaurant = (tag: string) => ({
     },
     sco: 'sco',
     smid: 'smid',
-    tr: 'tr',
+    tr: 'tr'
 });

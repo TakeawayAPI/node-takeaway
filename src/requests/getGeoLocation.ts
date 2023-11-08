@@ -1,10 +1,5 @@
 export default {
-    parameters: ({latitude, longitude, country}) => [
-        'getdatafromgeolocation',
-        latitude,
-        longitude,
-        country
-    ],
+    parameters: ({latitude, longitude, country}) => ['getdatafromgeolocation', latitude, longitude, country],
     response: {
         location: {
             _self: 'ld',

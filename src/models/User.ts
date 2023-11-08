@@ -1,10 +1,10 @@
-import {Takeaway} from '../api';
+import type {Takeaway} from '../api';
 
-import {Model, BaseModel} from './Model';
 import {Address} from './Address';
-import {Country} from './Country';
-import {Loyalty} from './Loyalty';
+import type {Country} from './Country';
 import {HistoryOrder} from './HistoryOrder';
+import {Loyalty} from './Loyalty';
+import {BaseModel, Model} from './Model';
 
 @Model
 export class User extends BaseModel {

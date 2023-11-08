@@ -33,23 +33,36 @@ export class TakeawayClient {
         this.config = config;
     }
 
-    getAddresses = (data?: RequestParameters, options?: RequestOptions) => this.request(requests.getAddresses, data, options);
+    getAddresses = (data?: RequestParameters, options?: RequestOptions) =>
+        this.request(requests.getAddresses, data, options);
     getBanks = (data?: RequestParameters, options?: RequestOptions) => this.request(requests.getBanks, data, options);
-    getCountries = (data?: RequestParameters, options?: RequestOptions) => this.request(requests.getCountries, data, options);
-    getDiscounts = (data?: RequestParameters, options?: RequestOptions) => this.request(requests.getDiscounts, data, options);
-    getGeoLocation = (data?: RequestParameters, options?: RequestOptions) => this.request(requests.getGeoLocation, data, options);
-    getHistory = (data?: RequestParameters, options?: RequestOptions) => this.request(requests.getHistory, data, options);
-    getHistoryDetails = (data?: RequestParameters, options?: RequestOptions) => this.request(requests.getHistoryDetails, data, options);
-    getLoyaltyPoints = (data?: RequestParameters, options?: RequestOptions) => this.request(requests.getLoyaltyPoints, data, options);
-    getMenuCard = (data?: RequestParameters, options?: RequestOptions) => this.request(requests.getMenuCard, data, options);
-    getRestaurantData = (data?: RequestParameters, options?: RequestOptions) => this.request(requests.getRestaurantData, data, options);
-    getRestaurants = (data?: RequestParameters, options?: RequestOptions) => this.request(requests.getRestaurants, data, options);
-    getReviews = (data?: RequestParameters, options?: RequestOptions) => this.request(requests.getReviews, data, options);
-    getServerTime = (data?: RequestParameters, options?: RequestOptions) => this.request(requests.getServerTime, data, options);
+    getCountries = (data?: RequestParameters, options?: RequestOptions) =>
+        this.request(requests.getCountries, data, options);
+    getDiscounts = (data?: RequestParameters, options?: RequestOptions) =>
+        this.request(requests.getDiscounts, data, options);
+    getGeoLocation = (data?: RequestParameters, options?: RequestOptions) =>
+        this.request(requests.getGeoLocation, data, options);
+    getHistory = (data?: RequestParameters, options?: RequestOptions) =>
+        this.request(requests.getHistory, data, options);
+    getHistoryDetails = (data?: RequestParameters, options?: RequestOptions) =>
+        this.request(requests.getHistoryDetails, data, options);
+    getLoyaltyPoints = (data?: RequestParameters, options?: RequestOptions) =>
+        this.request(requests.getLoyaltyPoints, data, options);
+    getMenuCard = (data?: RequestParameters, options?: RequestOptions) =>
+        this.request(requests.getMenuCard, data, options);
+    getRestaurantData = (data?: RequestParameters, options?: RequestOptions) =>
+        this.request(requests.getRestaurantData, data, options);
+    getRestaurants = (data?: RequestParameters, options?: RequestOptions) =>
+        this.request(requests.getRestaurants, data, options);
+    getReviews = (data?: RequestParameters, options?: RequestOptions) =>
+        this.request(requests.getReviews, data, options);
+    getServerTime = (data?: RequestParameters, options?: RequestOptions) =>
+        this.request(requests.getServerTime, data, options);
     getURLs = (data?: RequestParameters, options?: RequestOptions) => this.request(requests.getURLs, data, options);
     login = (data?: RequestParameters, options?: RequestOptions) => this.request(requests.login, data, options);
     order = (data?: RequestParameters, options?: RequestOptions) => this.request(requests.order, data, options);
-    resetPassword = (data?: RequestParameters, options?: RequestOptions) => this.request(requests.resetPassword, data, options);
+    resetPassword = (data?: RequestParameters, options?: RequestOptions) =>
+        this.request(requests.resetPassword, data, options);
 
     async request(
         definition: RequestDefinition,
@@ -74,7 +87,10 @@ export class TakeawayClient {
         const response = await fetch(this.config.getUrl(), {
             method: 'POST',
             headers,
-            body: parameters.map((parameter, index) => `var${index}=${encodeURIComponent(parameter)}`).concat([this.config.getDefaultQuery()]).join('&'),
+            body: parameters
+                .map((parameter, index) => `var${index}=${encodeURIComponent(parameter)}`)
+                .concat([this.config.getDefaultQuery()])
+                .join('&'),
             ...options
         });
 

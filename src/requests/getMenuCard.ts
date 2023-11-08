@@ -13,30 +13,36 @@ export const product = (tag: string, sizes = true) => ({
     excludedFromMinimum: '!xfm',
     options: {
         _self: 'ss',
-        options: [{
-            _self: 'sd',
-            name: 'nm',
-            type: 'tp',
-            choices: {
-                _self: 'cc',
-                choices: [{
-                    _self: 'ch',
-                    id: 'id',
-                    name: 'nm',
-                    deliveryPrice: '$pc',
-                    pickupPrice: '$tc',
-                    excludedFromMinimum: '!xfm',
-                    information: foodInformation('fai')
-                }]
+        options: [
+            {
+                _self: 'sd',
+                name: 'nm',
+                type: 'tp',
+                choices: {
+                    _self: 'cc',
+                    choices: [
+                        {
+                            _self: 'ch',
+                            id: 'id',
+                            name: 'nm',
+                            deliveryPrice: '$pc',
+                            pickupPrice: '$tc',
+                            excludedFromMinimum: '!xfm',
+                            information: foodInformation('fai')
+                        }
+                    ]
+                }
             }
-        }]
+        ]
     },
-    sizes: sizes ? {
-        _self: 'sz',
-        products: [product('pr', false)]
-    } : {
-        _self: 'sz'
-    },
+    sizes: sizes
+        ? {
+              _self: 'sz',
+              products: [product('pr', false)]
+          }
+        : {
+              _self: 'sz'
+          },
     cloudinaryProduct: 'cloudinaryProduct',
     // NOTE: this field is not used in the Android app, so no clue what it is
     ea: '$ea'
@@ -79,10 +85,12 @@ export const discount = (tag: string) => ({
     productNumber: 'dn',
     productGroups: {
         _self: 'kg',
-        items: [{
-            _self: 'ki',
-            ids: ['id']
-        }]
+        items: [
+            {
+                _self: 'ki',
+                ids: ['id']
+            }
+        ]
     },
     repeat: 'en',
     calculateSideDishes: '!is',
@@ -106,58 +114,62 @@ export default {
     response: {
         restaurant: {
             ...restaurant('rd'),
-            menu: [{
-                _self: 'mc',
-                categories: {
-                    _self: 'cs',
-                    categories: [{
-                        _self: 'ct',
-                        id: 'id',
-                        name: 'nm',
-                        description: 'ds',
-                        imageUrl: 'cti',
-                        ot: {
-                            _self: 'ot'
-                            // TODO
-                        },
-                        openingHours: {
-                            _self: 'ao',
-                            day: {
-                                _self: 'dr',
-                                number: 'od',
+            menu: [
+                {
+                    _self: 'mc',
+                    categories: {
+                        _self: 'cs',
+                        categories: [
+                            {
+                                _self: 'ct',
+                                id: 'id',
+                                name: 'nm',
+                                description: 'ds',
+                                imageUrl: 'cti',
+                                ot: {
+                                    _self: 'ot'
+                                    // TODO
+                                },
+                                openingHours: {
+                                    _self: 'ao',
+                                    day: {
+                                        _self: 'dr',
+                                        number: 'od',
+                                        time: {
+                                            _self: 'ru',
+                                            start: '*st',
+                                            end: '*en'
+                                        }
+                                    }
+                                },
+                                products: {
+                                    _self: 'ps',
+                                    products: [product('pr')]
+                                },
                                 time: {
                                     _self: 'ru',
                                     start: '*st',
                                     end: '*en'
-                                }
+                                },
+                                cloudinaryChain: 'cloudinaryChain',
+                                ctoi: 'ctoi'
                             }
+                        ],
+                        discounts1: {
+                            _self: 'ks',
+                            discounts: [discount('kk')]
                         },
-                        products: {
-                            _self: 'ps',
-                            products: [product('pr')]
-                        },
-                        time: {
-                            _self: 'ru',
-                            start: '*st',
-                            end: '*en'
-                        },
-                        cloudinaryChain: 'cloudinaryChain',
-                        ctoi: 'ctoi'
-                    }],
-                    discounts1: {
-                        _self: 'ks',
-                        discounts: [discount('kk')]
+                        discounts2: {
+                            _self: 'ak',
+                            discounts: [discount('kk')]
+                        }
                     },
-                    discounts2: {
-                        _self: 'ak',
-                        discounts: [discount('kk')]
+                    plasticBag: {
+                        _self: 'ap',
+                        products: [product('pr')]
                     }
-                },
-                plasticBag: {
-                    _self: 'ap',
-                    products: [product('pr')]
                 }
-            }],
+            ],
             // TODO: ap
             currentTime: '*ct',
             weekday: 'wd',

@@ -1,20 +1,20 @@
 import {inspect} from 'util';
 
-import {Takeaway, OptionType, PaymentMethod, OrderDeliveryMethod} from '../src';
+import {OptionType, OrderDeliveryMethod, PaymentMethod, Takeaway} from '../src';
 
 (async () => {
     try {
         const takeaway = new Takeaway();
-        const postalCode = process.env.POSTAL_CODE;
+        const postalCode = process.env.POSTAL_CODE as string;
 
         const country = await takeaway.getCountryById('NL');
         const restaurants = await country.getRestaurants(postalCode, '', '');
 
         for (const restaurant of restaurants) {
-            if (!restaurant.name.toLowerCase().includes('domino')) {
+            if (!restaurant.name?.toLowerCase().includes('domino')) {
                 continue;
             }
-            if (!restaurant.address.street.toLowerCase().includes('hortensiastraat')) {
+            if (!restaurant.address.street?.toLowerCase().includes('hortensiastraat')) {
                 continue;
             }
 
@@ -40,12 +40,15 @@ import {Takeaway, OptionType, PaymentMethod, OrderDeliveryMethod} from '../src';
                             if (!product.name.toLowerCase().includes('pizza margaritha')) {
                                 continue;
                             }
-                            if (product.name.toLowerCase().includes('vegan') || product.name.toLowerCase().includes('glutenvrij')) {
+                            if (
+                                product.name.toLowerCase().includes('vegan') ||
+                                product.name.toLowerCase().includes('glutenvrij')
+                            ) {
                                 continue;
                             }
 
-                            const sizeId = product.id;
-                            const choiceIds = [];
+                            const sizeId = product.id as string;
+                            const choiceIds: string[] = [];
 
                             console.log(product.data);
                             if (product.options) {
@@ -55,7 +58,7 @@ import {Takeaway, OptionType, PaymentMethod, OrderDeliveryMethod} from '../src';
                                     console.log(option.optionType, option.data);
 
                                     if (option.optionType === OptionType.SINGLE) {
-                                        choiceIds.push(option.choices[0].id);
+                                        choiceIds.push(option.choices[0].id as string);
                                     }
 
                                     if (option.choices) {
@@ -82,29 +85,33 @@ import {Takeaway, OptionType, PaymentMethod, OrderDeliveryMethod} from '../src';
                             console.log('Order format:', product.toOrderFormat(sizeId, choiceIds));
 
                             const order = await country.order({
-                                name: process.env.NAME,
+                                name: process.env.NAME as string,
                                 address: {
-                                    street: process.env.STREET,
-                                    city: process.env.CITY,
-                                    postalCode: process.env.POSTAL_CODE,
-                                    deliveryArea: process.env.POSTAL_CODE.substring(0, 4)
+                                    street: process.env.STREET as string,
+                                    city: process.env.CITY as string,
+                                    postalCode: process.env.POSTAL_CODE as string,
+                                    deliveryArea: (process.env.POSTAL_CODE as string).substring(0, 4)
                                 },
-                                phone: process.env.PHONE,
-                                email: process.env.EMAIL,
+                                phone: process.env.PHONE as string,
+                                email: process.env.EMAIL as string,
 
                                 restaurant,
-                                products: [{
-                                    product,
-                                    sizeId,
-                                    choiceIds
-                                }],
+                                products: [
+                                    {
+                                        product,
+                                        sizeId,
+                                        choiceIds
+                                    }
+                                ],
 
                                 deliveryMethod: OrderDeliveryMethod.DELIVERY,
                                 deliveryTime: '',
                                 paymentMethod: PaymentMethod.IDEAL,
-                                bank: restaurant.banks.find((bank) => bank.name.toLowerCase() === 'bunq'),
+                                bank: restaurant.banks.find((bank) => bank.name?.toLowerCase() === 'bunq'),
 
-                                clientId: Math.floor(Math.random() * 10 ** 10).toString().padStart(10, '0')
+                                clientId: Math.floor(Math.random() * 10 ** 10)
+                                    .toString()
+                                    .padStart(10, '0')
                             });
                             console.log(order.data);
 

@@ -1,6 +1,6 @@
-import {Takeaway} from '../api';
+import {type Takeaway} from '../api';
 
-import {Model, BaseModel, Data} from './Model';
+import {BaseModel, type Data, Model} from './Model';
 import {Option} from './Option';
 import {ProductSize} from './ProductSize';
 
@@ -51,7 +51,10 @@ export class Product extends BaseModel {
             this.options = data.options.options.map((choice) => new Option(takeaway, choice));
             delete data.options;
 
-            this.choiceIds = this.options.reduce((prev, option) => prev.concat(option.choices.map((choice) => choice.id)), []);
+            this.choiceIds = this.options.reduce(
+                (prev, option) => prev.concat(option.choices.map((choice) => choice.id)),
+                []
+            );
         } else {
             this.options = [];
             this.choiceIds = [];
@@ -67,7 +70,7 @@ export class Product extends BaseModel {
         }
     }
 
-    toOrderFormat(sizeId = null, choiceIds = []) {
+    toOrderFormat(sizeId: string = null, choiceIds: string[] = []) {
         // Validate size ID
         if (!sizeId) {
             sizeId = this.data.id;

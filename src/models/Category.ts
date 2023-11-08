@@ -1,6 +1,6 @@
-import {Takeaway} from '../api';
+import {type Takeaway} from '../api';
 
-import {Model, BaseModel, Data} from './Model';
+import {BaseModel, type Data, Model} from './Model';
 import {Product} from './Product';
 
 @Model

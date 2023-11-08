@@ -1,11 +1,11 @@
-import {Takeaway} from '../api';
-import {OrderInput, OrderAddress, OrderVietnamAddress} from '../inputs/OrderInput';
+import {type Takeaway} from '../api';
+import {type OrderAddress, type OrderInput, type OrderVietnamAddress} from '../inputs/OrderInput';
 
-import {Model, BaseModel, Data} from './Model';
-import {User} from './User';
 import {Address} from './Address';
-import {Restaurant, PaymentMethod} from './Restaurant';
+import {BaseModel, type Data, Model} from './Model';
 import {Order} from './Order';
+import {PaymentMethod, Restaurant} from './Restaurant';
+import {User} from './User';
 
 interface Translations {
     bg?: string;
@@ -57,12 +57,12 @@ export class Country extends BaseModel {
             id?: string;
             apiKey?: string;
             poweredBy?: string;
-        }
+        };
         nm: {
             id?: string;
             url?: string;
             apiKey?: string;
-        }
+        };
         preferred?: string;
     };
 
@@ -144,7 +144,9 @@ export class Country extends BaseModel {
 
             // Order information
             restaurantId: orderInput.restaurant.id,
-            formattedOrder: orderInput.products.map((product) => product.product.toOrderFormat(product.sizeId, product.choiceIds)),
+            formattedOrder: orderInput.products.map((product) =>
+                product.product.toOrderFormat(product.sizeId, product.choiceIds)
+            ),
 
             // Remarks
             remarks: orderInput.remarks,

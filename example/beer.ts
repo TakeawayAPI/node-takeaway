@@ -17,7 +17,7 @@ import {Takeaway} from '../src';
                 for (const category of restaurant.categories) {
                     for (const product of category.products) {
                         if (product.name && product.name.toLowerCase().includes('grolsch')) {
-                            console.log(product.name, product.deliveryPrice / 100);
+                            console.log(product.name, (product.deliveryPrice ?? 0) / 100);
                         }
                     }
                 }

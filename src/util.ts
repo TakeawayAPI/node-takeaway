@@ -14,7 +14,9 @@ export const print = (xml) => {
             print(child);
         }
     } else if (xml.type === 'element') {
-        let attributes = Object.entries(xml.attributes).map(([key, value]) => `${key}="${value}"`).join(' ');
+        let attributes = Object.entries(xml.attributes)
+            .map(([key, value]) => `${key}="${value}"`)
+            .join(' ');
         if (attributes !== '') {
             attributes = ` ${attributes}`;
         }

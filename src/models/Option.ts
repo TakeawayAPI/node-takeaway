@@ -1,7 +1,7 @@
-import {Takeaway} from '../api';
+import type {Takeaway} from '../api';
 
-import {Model, BaseModel, Data} from './Model';
 import {Choice} from './Choice';
+import {BaseModel, type Data, Model} from './Model';
 
 export enum OptionType {
     SINGLE = 'SINGLE',

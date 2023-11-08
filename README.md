@@ -3,41 +3,43 @@
 Unofficial JavaScript implementation of the [Takeaway.com](https://www.takeaway.com) API.
 
 ## Installation
+
 ```
 yarn add takeaway
 ```
 
 ## Endpoints
-- [x] Banks
-- [ ] CheckVoucher
-- [x] Config
-- [ ] CreateAccount
-- [x] Discounts
-- [x] GeoLocation
-- [x] HistoryDetails
-- [x] LoyaltyPoints
-- [ ] ImportOrder
-- [x] Menucard
-- [ ] OnlinePaymentStatus
-- [ ] Order
-- [ ] OrderWithOnlinePayment
-- [ ] RecurringPayment
-- [x] ResetPassword
-- [x] RestaurantData
-- [x] RestaurantList
-- [x] Reviews
-- [x] ServerTime
-- [x] URLs
-- [x] UserAddressList
-- [x] UserLogin
-- [x] UserOrderHistory
-- [ ] VietnamDeliveryArea
+
+-   [x] Banks
+-   [ ] CheckVoucher
+-   [x] Config
+-   [ ] CreateAccount
+-   [x] Discounts
+-   [x] GeoLocation
+-   [x] HistoryDetails
+-   [x] LoyaltyPoints
+-   [ ] ImportOrder
+-   [x] Menucard
+-   [ ] OnlinePaymentStatus
+-   [ ] Order
+-   [ ] OrderWithOnlinePayment
+-   [ ] RecurringPayment
+-   [x] ResetPassword
+-   [x] RestaurantData
+-   [x] RestaurantList
+-   [x] Reviews
+-   [x] ServerTime
+-   [x] URLs
+-   [x] UserAddressList
+-   [x] UserLogin
+-   [x] UserOrderHistory
+-   [ ] VietnamDeliveryArea
 
 ## Example
-```javascript
-import {inspect} from 'util';
 
+```javascript
 import {Takeaway, TakeawayConfig} from 'takeaway';
+import {inspect} from 'util';
 
 (async () => {
     try {
@@ -68,7 +70,9 @@ import {Takeaway, TakeawayConfig} from 'takeaway';
 ```
 
 ## Development
+
 ### Setup
+
 ```bash
 # Clone Git repository
 git clone git@github.com:TakeawayAPI/node-takeaway.git

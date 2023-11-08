@@ -1,11 +1,11 @@
-import {Takeaway} from '../api';
+import type {Takeaway} from '../api';
 
-import {Model, BaseModel, Data} from './Model';
-import Country from './Country';
 import {Address} from './Address';
-import {Category} from './Category';
-import {Review} from './Review';
 import {Bank} from './Bank';
+import {Category} from './Category';
+import type Country from './Country';
+import {BaseModel, type Data, Model} from './Model';
+import {Review} from './Review';
 
 export enum PaymentMethod {
     DELIVERY_CASH = '0',
@@ -56,11 +56,11 @@ export class Restaurant extends BaseModel {
     open?: boolean;
     branch?: string;
     payments?: {
-        methods?: ({
+        methods?: {
             id?: string;
             fixedCosts?: number;
             percentageCosts?: string;
-        })[];
+        }[];
     };
     estimatedDeliveryTime?: string;
     polygonStatus?: string;
@@ -86,7 +86,7 @@ export class Restaurant extends BaseModel {
         };
     };
     deliveryDistricts?: {
-        areas?: ({
+        areas?: {
             postalCode?: string[];
             minimumAmount?: number;
             costs?: {
@@ -94,7 +94,7 @@ export class Restaurant extends BaseModel {
                 to?: number;
                 costs?: number;
             };
-        })[];
+        }[];
     };
     kitchens?: {
         ids: string[];
@@ -163,7 +163,9 @@ export class Restaurant extends BaseModel {
         this.data = Object.assign({}, this.data, data.restaurant);
 
         if (this.data.menu && this.data.menu.length > 0) {
-            this.categories = this.data.menu[0].categories.categories.map((category: any) => new Category(this.takeaway, category));
+            this.categories = this.data.menu[0].categories.categories.map(
+                (category: any) => new Category(this.takeaway, category)
+            );
             delete this.data.menu[0].categories;
             return this.categories;
         } else {

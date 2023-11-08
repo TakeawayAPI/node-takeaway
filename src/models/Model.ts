@@ -1,4 +1,4 @@
-import {Takeaway} from '../api';
+import {type Takeaway} from '../api';
 
 export const Model = (ProxyTarget) => {
     return new Proxy(ProxyTarget, {
@@ -16,7 +16,7 @@ export const Model = (ProxyTarget) => {
                     }
                     return Reflect.get(target, name, receiver);
                 },
-                set(target, name, value, receiver) {
+                set(target, name, value) {
                     if (name === 'data' || (Target.relationships && Target.relationships.includes(name))) {
                         target[name] = value;
                         return true;

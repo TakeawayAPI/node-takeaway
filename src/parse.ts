@@ -1,4 +1,4 @@
-import {ResponseDefinition} from './client';
+import type {ResponseDefinition} from './client';
 import {print} from './util';
 
 const parseChild = (def: string | ResponseDefinition, child) => {

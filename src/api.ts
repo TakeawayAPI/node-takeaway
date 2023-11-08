@@ -1,5 +1,5 @@
-import {TakeawayConfig} from './config';
 import {TakeawayClient} from './client';
+import {TakeawayConfig} from './config';
 import {Country} from './models';
 
 export class Takeaway {

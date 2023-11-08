@@ -1,4 +1,4 @@
-import {Restaurant, Product, PaymentMethod, User, Address, Bank} from '../models';
+import {type Address, type Bank, type PaymentMethod, type Product, type Restaurant, type User} from '../models';
 
 export interface OrderAddress {
     street: string;
@@ -26,11 +26,11 @@ export interface OrderInput {
     email: string;
 
     restaurant: Restaurant;
-    products: ({
+    products: {
         product: Product;
         sizeId: string;
         choiceIds: string[];
-    })[];
+    }[];
 
     remarks?: string;
     newsLetter?: boolean;

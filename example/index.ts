@@ -1,7 +1,7 @@
 import {readdirSync} from 'fs';
 
 // Parse npm run arguments
-const args = JSON.parse(process.env.npm_config_argv).original;
+const args = JSON.parse(process.env.npm_config_argv as string).original;
 
 // Find available files
 const names = readdirSync('./example')
@@ -28,6 +28,5 @@ if (args.length <= args.indexOf('example') + 1) {
 
         // Execute the file
         import(`./${name}.ts`);
-
     }
 }

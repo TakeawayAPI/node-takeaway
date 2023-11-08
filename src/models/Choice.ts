@@ -1,7 +1,7 @@
-import {Takeaway} from '../api';
+import {type Takeaway} from '../api';
 
-import {Model, BaseModel, Data} from './Model';
-import {FoodInformation} from './Product';
+import {BaseModel, type Data, Model} from './Model';
+import {type FoodInformation} from './Product';
 
 @Model
 export class Choice extends BaseModel {

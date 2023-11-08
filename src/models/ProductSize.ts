@@ -1,8 +1,8 @@
-import {Takeaway} from '../api';
+import {type Takeaway} from '../api';
 
-import {Model, BaseModel} from './Model';
-import {FoodInformation} from './Product';
+import {BaseModel, Model} from './Model';
 import {Option} from './Option';
+import {type FoodInformation} from './Product';
 
 @Model
 export class ProductSize extends BaseModel {

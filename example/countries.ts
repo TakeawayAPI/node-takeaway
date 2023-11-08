@@ -10,15 +10,18 @@ const print = (obj: any) => {
     }
 };
 
-const inputs = [{
-    language: 'nl',
-    url: 'https://nl.citymeal.com/android/android.php',
-    postalCode: '7522'
-}, {
-    language: 'de',
-    url: 'https://de.citymeal.com/android/android.php',
-    postalCode: '44369'
-}];
+const inputs = [
+    {
+        language: 'nl',
+        url: 'https://nl.citymeal.com/android/android.php',
+        postalCode: '7522'
+    },
+    {
+        language: 'de',
+        url: 'https://de.citymeal.com/android/android.php',
+        postalCode: '44369'
+    }
+];
 
 (async () => {
     try {
@@ -26,10 +29,12 @@ const inputs = [{
         const input = inputs[0];
 
         // Initialize API
-        const takeaway = new Takeaway(new TakeawayConfig({
-            language: input.language,
-            url: input.url
-        }));
+        const takeaway = new Takeaway(
+            new TakeawayConfig({
+                language: input.language,
+                url: input.url
+            })
+        );
 
         // Get country
         const country = await takeaway.getCountryById(input.language.toUpperCase());
