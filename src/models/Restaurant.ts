@@ -97,10 +97,10 @@ export class Restaurant extends BaseModel {
         }[];
     };
     kitchens?: {
-        ids: string[];
+        ids: number[];
     };
     subKitchens?: {
-        ids: string[];
+        ids: number[];
     };
     popularDishes?: {
         ids: string[];
