@@ -63,6 +63,10 @@ export class Restaurant extends BaseModel {
         }[];
     };
     estimatedDeliveryTime?: string;
+    eta?: {
+        min?: number;
+        max?: number;
+    };
     polygonStatus?: string;
     deliveryMethods?: {
         orderMethods?: string;
