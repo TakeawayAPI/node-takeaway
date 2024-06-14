@@ -123,6 +123,7 @@ export class Restaurant extends BaseModel {
     information?: string;
     grade?: number;
     ratingCount?: number;
+    rating?: string;
     logoUrl?: string;
     headerImageUrl?: string;
     cacheKey?: string;
