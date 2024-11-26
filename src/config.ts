@@ -13,7 +13,7 @@ export class TakeawayConfig {
         password = '4ndro1d',
         version = '5.7',
         systemVersion = '29',
-        appVersion = '8.29.0',
+        appVersion = '9999.9999.9999',
         appName = 'Takeaway.com'
     } = {}) {
         this.language = language;

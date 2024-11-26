@@ -63,6 +63,10 @@ export class Restaurant extends BaseModel {
         }[];
     };
     estimatedDeliveryTime?: string;
+    eta?: {
+        min?: number;
+        max?: number;
+    };
     polygonStatus?: string;
     deliveryMethods?: {
         orderMethods?: string;
@@ -97,10 +101,10 @@ export class Restaurant extends BaseModel {
         }[];
     };
     kitchens?: {
-        ids: string[];
+        ids: number[];
     };
     subKitchens?: {
-        ids: string[];
+        ids: number[];
     };
     popularDishes?: {
         ids: string[];
@@ -119,6 +123,7 @@ export class Restaurant extends BaseModel {
     information?: string;
     grade?: number;
     ratingCount?: number;
+    rating?: string;
     logoUrl?: string;
     headerImageUrl?: string;
     cacheKey?: string;

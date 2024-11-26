@@ -29,7 +29,13 @@ export class Takeaway {
 
     async getCountries(): Promise<Country[]> {
         const data = await this.getClient().getCountries();
-        return data.config.countries.map((country: any) => new Country(this, country));
+        const kitchens = data.config.kitchens.kitchens.map((kitchen: any) => {
+            return {
+                ...kitchen,
+                subKitchens: kitchen.subKitchens.subKitchens
+            };
+        });
+        return data.config.countries.map((country: any) => new Country(this, { ...country, kitchens: kitchens }));
     }
 
     async getCountryById(id: string): Promise<Country> {
