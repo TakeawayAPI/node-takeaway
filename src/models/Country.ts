@@ -23,6 +23,18 @@ interface Translations {
     vi?: string;
 }
 
+interface Kitchen {
+    id: string;
+    descriptions: Translations;
+    imageUrl: string;
+    subKitchens: SubKitchen[];
+}
+
+interface SubKitchen {
+    id: string;
+    descriptions: Translations;
+}
+
 @Model
 export class Country extends BaseModel {
     static relationships = [];
@@ -52,6 +64,7 @@ export class Country extends BaseModel {
     enabledRecurringPayments?: {
         methods?: string[];
     };
+    kitchens?: Kitchen[];
     autoComplete?: {
         gp: {
             id?: string;

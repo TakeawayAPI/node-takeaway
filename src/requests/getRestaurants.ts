@@ -95,8 +95,7 @@ export default {
                         min: '#min',
                         max: '#max'
                     },
-                    // Unknown attributes
-                    rvd: 'rvd'
+                    rating: 'rvd'
                 }
             ],
             weekday: 'wd',
